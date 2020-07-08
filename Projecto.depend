@@ -105,3 +105,93 @@
 	"Map.h"
 	<windows.h>
 
+1594165306 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594163917 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594156740 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.h
+
+1594165306 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594156740 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594164184 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594156980 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.h
+
+1594165306 source:c:\users\soule\desktop\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594163917 c:\users\soule\desktop\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594156740 c:\users\soule\desktop\laurita-griffiths-motors\map.h
+
+1594156980 c:\users\soule\desktop\laurita-griffiths-motors\mapaenlazado.h
+
+1594165754 source:c:\users\soule\desktop\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594156740 source:c:\users\soule\desktop\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594167443 source:c:\users\soule\desktop\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+

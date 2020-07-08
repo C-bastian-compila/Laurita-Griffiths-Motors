@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Map.h" />
+		<Unit filename="MapaEnlazado.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MapaEnlazado.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

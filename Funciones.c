@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "Map.h"
+#include "MapaEnlazado.h"
 #include <windows.h>
 
 #define abajo 0x50
@@ -153,6 +154,7 @@ int menuAutos(){
 }
 
 void goy(int y){
+
     HANDLE hoon = GetStdHandle(STD_OUTPUT_HANDLE);
     COORD pos;
     pos.X = 0;
@@ -242,7 +244,7 @@ bool ingresarUsuario(tipoUsuario *usuario, Map *mapaUsuario){
 
 void registrarUsuario(Map *mapaUsuarios){
 
-        FILE *archivo = fopen("usuarios.csv","a");
+        FILE *archivo = fopen("usuarios.txt","a");
         if(archivo == NULL)
         {
             printf("NO SE PUDO ABRIR EL ARCHIVO");
@@ -319,7 +321,8 @@ void registrarUsuario(Map *mapaUsuarios){
         insertMap(mapaUsuarios, usuario->rut, usuario);
 
         printf("\n");
-        printf("\t\tUSUARIO CREADO EXITOSAMENTE\n");
+        printf("USUARIO CREADO EXITOSAMENTE\n");
+        getch();
 
         fclose(archivo);
 
@@ -335,7 +338,7 @@ void *crearChar(){
     return dato;
 }
 
-void llenarBD(Map *mapaUsuario){
+void llenarBD(Map *mapaUsuario, Mapx *mapaTipo){
 
     FILE *archivo;
     char linea[1001];
@@ -348,7 +351,7 @@ void llenarBD(Map *mapaUsuario){
     if(archivo == NULL)
     {
         printf("ERROR AL ABRIR EL ARCHIVO\n");
-        return 1;
+        ExitProcess(1);
     }
 
     while(fgets(linea, 1000, archivo)!= NULL)
@@ -358,22 +361,60 @@ void llenarBD(Map *mapaUsuario){
     }
 
     fclose(archivo);
+
+    //LEER DATOS PARA MAPA ENLAZADO TIPO, mas coas
+
+    tipoAuto *datoAuto;
+
+    archivo = fopen("autos.txt","r");
+    if(archivo == NULL)
+    {
+        printf("ERROR AL ABRIR ARCHIVO\n");
+        ExitProcess(1);
+    }
+
+    while(fgets(linea, 1000, archivo)!= NULL)
+    {
+        datoAuto = crearAutoCSV(linea);
+
+        insertMapx(mapaTipo, datoAuto->tipo, datoAuto);
+        //ACA SE PONEN LOS OTROS INSERT
+    }
+
+    fclose(archivo);
+
 }
 
-crearUsuarioCSV(char *linea){
+void *crearUsuarioCSV(char *linea){
 
     tipoUsuario *usuario = (tipoUsuario*) malloc (sizeof(tipoUsuario));
 
-    usuario->rut = get_csv_field(linea,1);
-	usuario->clave = get_csv_field(linea,2);
-  	usuario->nombre = get_csv_field(linea,3);
-  	usuario->nacimiento= get_csv_field(linea,4);
-  	usuario->tipoDeUsuario = get_csv_field(linea,5);
-	usuario->numeroTar = get_csv_field(linea,6);
-	usuario->vencimientoTar = get_csv_field(linea,7);
-	usuario->cvvTar= get_csv_field(linea,8);
+    usuario->rut = get_csv_field(linea, 1);
+	usuario->clave = get_csv_field(linea, 2);
+  	usuario->nombre = get_csv_field(linea, 3);
+  	usuario->nacimiento= get_csv_field(linea, 4);
+  	usuario->tipoDeUsuario = get_csv_field(linea, 5);
+	usuario->numeroTar = get_csv_field(linea, 6);
+	usuario->vencimientoTar = get_csv_field(linea, 7);
+	usuario->cvvTar= get_csv_field(linea, 8);
 
 	return usuario;
+}
+
+void *crearAutoCSV(char *linea){
+
+    tipoAuto *datoAuto = (tipoAuto *) malloc (sizeof(tipoAuto));
+
+    datoAuto->ID = get_csv_field(linea, 1);
+    datoAuto->nombre = get_csv_field(linea, 2);
+    datoAuto->marca = get_csv_field(linea, 3);
+    datoAuto->tipo = get_csv_field(linea, 4);
+    datoAuto->gama = get_csv_field(linea, 5);
+    datoAuto->estado = get_csv_field(linea, 6);
+    datoAuto->precio = get_csv_field(linea, 7);
+    datoAuto->disponibles = get_csv_field(linea,8);
+
+    return datoAuto;
 }
 
 char * _strdup (const char *s) {
@@ -399,15 +440,21 @@ const char *get_csv_field (char * tmp, int i) {
     return NULL;
 }
 
-void comprobarMapa(Map *mapa){
+void comprobarMapa(Mapx *mapa){
 
-    tipoUsuario *current = firstMap(mapa);
-    do{
-        printf("%s\n", current->rut);
-        printf("%s\n", current->clave);
-        current = nextMap(mapa);
+    int aux = 0;
+    tipoAuto *current = searchMapx(mapa,"Deportivo");
+
+    do
+    {
+        printf("%s\n", current->ID);
+        printf("%s\n", current->nombre);
+        current = mapxNextList(mapa);
         getch();
-    }while(current != NULL);
+        aux++;
+
+    }while(aux != 10);
+
     printf("LISTOOOOO\n");
     getch();
 

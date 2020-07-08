@@ -17,7 +17,7 @@
 17;R8 Coupe;Audi;Deportivo Lujoso;Alta;Nuevo;158.990.000;1
 18;TT Coupe;Audi;Deportivo;Alta;Nuevo;30.990.000;2
 19;RAV4 HíbridoToyota;Toyota;Todo terreno;Alta;Nuevo;22.490.000;6
-20;Yaris;Toyota;Casual;Media;Usado;1.100.000;30
+20;Yaris;Toyota;Casual;Media;Usado;2.100.000;30
 21;Yaris Sport;Toyota;Casual;Media;Nuevo;9.690.000;13
 22;Tundra;Toyota;Todo terreno;Alta;Nuevo;31.490.000;4
 23;Veyron;Bugatti;Deportivo Lujoso;Alta;Nuevo;2.002.500.000;1

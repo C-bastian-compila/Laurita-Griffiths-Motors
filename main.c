@@ -13,8 +13,9 @@ int main(){
     bool usuarioReconocido = false;
 
     Map *mapaUsuario = createMap(stringHash,stringEqual);
+    Mapx *mapaTipo = createMapx();
 
-    llenarBD(mapaUsuario);
+    llenarBD(mapaUsuario, mapaTipo);
 
     portada();
     printf("Presione cualquier tecla para continuar...");
@@ -39,7 +40,7 @@ int main(){
                 portada();
                 return 0;
             case 5: //caso de prueba**********************************
-                comprobarMapa(mapaUsuario);
+                comprobarMapa(mapaTipo);
             default:
                 break;
         }

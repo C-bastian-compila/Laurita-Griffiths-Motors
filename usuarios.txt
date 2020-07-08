@@ -1,9 +1,7 @@
 20185546-2;batuntu;nacho;2345;normal;1234 1234 1234 1234;6/21;123
 20539528-8;cbastian;Sebastian schwneger;09/07/2000;normal;1234 1234 1234 1234;05/21;567
-prueba1;clave;0;0;normal;0;0;0
-prueba2;clave;0;0;normal;0;0;0
-prueba3;clave;0;0;normal;0;0;0
-prueba4;clave;0;0;normal;0;0;0
-prueba5;clave;0;0;normal;0;0;0
-prueba6;clave;0;0;normal;0;0;0
-556656;6556;65;6556;normal;5655656;0;5
+20673437-k;c1ncs;Angel;00/00/0000;normal;5645 4567 4568 4568;5/21;986
+5;5;5;5;normal;5;5;5
+6;6;6;6;normal;6;6;6
+4;4;4;4;normal;4;4;4
+9;9;9;9;normal;9;9;9
