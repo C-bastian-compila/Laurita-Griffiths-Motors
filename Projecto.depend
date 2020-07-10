@@ -105,7 +105,7 @@
 	"Map.h"
 	<windows.h>
 
-1594165306 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.c
+1594187942 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.c
 	"Funciones.h"
 	<stdio.h>
 	<stdlib.h>
@@ -116,14 +116,14 @@
 	"MapaEnlazado.h"
 	<windows.h>
 
-1594163917 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.h
+1594185893 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.h
 	<stdbool.h>
 	"Map.h"
 	"MapaEnlazado.h"
 
-1594156740 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.h
+1594168116 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.h
 
-1594165306 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\main.c
+1594180518 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -131,7 +131,7 @@
 	"Map.h"
 	<windows.h>
 
-1594156740 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.c
+1594168116 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.c
 	"Map.h"
 	<math.h>
 	<string.h>
@@ -139,7 +139,7 @@
 	<stdint.h>
 	<assert.h>
 
-1594164184 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.c
+1594183121 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -148,7 +148,7 @@
 	"MapaEnlazado.h"
 	"Funciones.h"
 
-1594156980 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.h
+1594183121 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.h
 
 1594165306 source:c:\users\soule\desktop\laurita-griffiths-motors\funciones.c
 	"Funciones.h"
@@ -187,6 +187,276 @@
 	<assert.h>
 
 1594167443 source:c:\users\soule\desktop\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594180518 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594185893 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594168116 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\map.h
+
+1594183121 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\mapaenlazado.h
+
+1594168116 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594183121 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594189406 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594232188 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594232438 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594168116 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\laurita-griffiths-motors\map.h
+
+1594228610 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\laurita-griffiths-motors\mapaenlazado.h
+
+1594230068 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594168116 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594228610 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\laurita-griffiths-motors\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594232438 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594232438 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594168116 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\map.h
+
+1594228610 c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\mapaenlazado.h
+
+1594232659 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594168116 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594228610 source:c:\users\sebapucv\desktop\proyecto estructura\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594232659 source:c:\users\erikb\downloads\laurita-griffiths-motors (2)\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594234411 c:\users\erikb\downloads\laurita-griffiths-motors (2)\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594168116 c:\users\erikb\downloads\laurita-griffiths-motors (2)\laurita-griffiths-motors\map.h
+
+1594232929 c:\users\erikb\downloads\laurita-griffiths-motors (2)\laurita-griffiths-motors\mapaenlazado.h
+
+1594168116 source:c:\users\erikb\downloads\laurita-griffiths-motors (2)\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594232913 source:c:\users\erikb\downloads\laurita-griffiths-motors (2)\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594235195 source:c:\users\erikb\downloads\laurita-griffiths-motors (2)\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594235195 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594234411 c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594168116 c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors\map.h
+
+1594232929 c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors\mapaenlazado.h
+
+1594232659 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594168116 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594232913 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594235195 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors beta\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594234411 c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors beta\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594168116 c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors beta\laurita-griffiths-motors\map.h
+
+1594232929 c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors beta\laurita-griffiths-motors\mapaenlazado.h
+
+1594232659 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors beta\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594168116 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors beta\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594232913 source:c:\users\erikb\downloads\laurita-griffiths-motors beta\laurita-griffiths-motors beta\laurita-griffiths-motors\mapaenlazado.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>

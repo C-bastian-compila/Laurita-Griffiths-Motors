@@ -6,7 +6,6 @@
 #include "MapaEnlazado.h"
 #include "Funciones.h"
 
-
 struct nodeMapx{
 
     void *data;
@@ -37,6 +36,14 @@ struct Mapx{
     int loadFactor;
 
 };
+
+int hashMapx(const char * , int);
+int equalMapx(const void * , const void *);
+int equalTipoAuto(void *, void *);
+int  fixCollision(int , int);
+void enlargeMapx(Mapx *);
+int insertList(nodeMapx *, nodeMapx *);
+nodeMapx *createNodeMapx(const void * , const void * );
 
 Mapx *createMapx() {
 
@@ -207,7 +214,6 @@ void insertMapx(Mapx *mapa, void *key, void *data){
             }
             else index = fixCollision(index, mapa->size);
 
-            return;
         }
 
     }while(1);
@@ -251,15 +257,8 @@ void *mapxNextList(Mapx *mapa){
     }
     else
     {
-        if(mapa->buckets[mapa->currIndex]->next == NULL)
-        {
-            return NULL;
-        }
-        else
-        {
-            mapa->currNode = mapa->buckets[mapa->currIndex];
-            return mapa->currNode->data;
-        }
+        mapa->currNode = mapa->buckets[mapa->currIndex];
+        return mapa->currNode->data;
     }
 }
 
@@ -270,6 +269,15 @@ void *mapxPrevList(Mapx *mapa){
     if(mapa->currNode->prev != NULL)
     {
         mapa->currNode = mapa->currNode->prev;
+        return mapa->currNode->data;
     }
-    else return NULL;
+    else return mapa->currNode->data;
+}
+
+void *mapxCurrent(Mapx *mapa){
+
+    if(mapa == NULL) return NULL;
+
+    return mapa->currNode->data;
+
 }
