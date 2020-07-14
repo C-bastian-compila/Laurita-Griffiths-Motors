@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="ArbolBinario.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ArbolBinario.h" />
 		<Unit filename="Funciones.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -43,6 +47,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="MapaEnlazado.h" />
+		<Unit filename="list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="list.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

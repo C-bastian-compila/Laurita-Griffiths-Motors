@@ -1,12 +1,14 @@
-#include "Funciones.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include <windows.h>
+#include "Funciones.h"
 #include "Map.h"
 #include "MapaEnlazado.h"
-#include <windows.h>
+#include "ArbolBinario.h"
+#include "list.h"
 
 #define abajo 0x50
 #define arriba 0x48
@@ -21,7 +23,7 @@ struct tipoAuto{
     char *tipo;
     char *gama;
     char *estado;
-    unsigned long precio;
+    unsigned long long precio;
     unsigned int disponibles;
 };
 
@@ -46,12 +48,13 @@ struct tipoMejora{
 
 // MENUS ---------------------------------------------------------------------------------------------------------------------
 
-int portada(){
+void portada(){
+
     FILE *menu = fopen ("menu1.txt", "rb");
     if(menu == NULL)
     {
         printf("NO SE PUDO ABRIR EL ARCHIVO");
-        return 1;
+        ExitProcess(1);
     }
     char a[1001];
     while (fgets(a,1000,menu) != NULL)
@@ -62,6 +65,7 @@ int portada(){
 }
 
 int menu1(){
+
     int MenuInicio = 1, MenuFin = 4, LineaDeInicio = 6, Menu = 1;
     system("@cls||clear");
     while (1){
@@ -74,7 +78,7 @@ int menu1(){
         char a[1001];
 
         while (fgets(a,1000,menu2) != NULL) {
-            printf ("%s", a);
+            printf (" %s", a);
         }
 
         printf("\n");
@@ -94,7 +98,6 @@ int menu1(){
 
         while(1) {
             tecla = getch();
-            //printf("                          %s", tecla);
             if (tecla == arriba) {
                 Menu = Menu == MenuInicio ? MenuFin: --Menu;
                 printf("\r  ");
@@ -116,6 +119,57 @@ int menu1(){
 
 }
 
+int menu2(){
+
+    system("@cls||clear");
+
+    char tecla;
+    int MenuInicio = 1, MenuFin = 4, LineaDeInicio = 6, Menu = 1;
+
+    FILE *menu2 = fopen ("menu2.txt", "rb");
+        if(menu2 == NULL)
+        {
+            printf("NO SE PUDO ABRIR EL ARCHIVO");
+            return 1;
+        }
+        char a[1001];
+
+        while (fgets(a,1000,menu2) != NULL) {
+            printf (" %s", a);
+        }
+
+    printf("\n");
+
+    goy(LineaDeInicio);
+
+    printf("   Ver autos \n");
+    printf("   Mejorar y personalizar carro \n");
+    printf("   Ir al carro de compras \n");
+    printf("   Salir \n");
+
+    goy(LineaDeInicio);
+    printf("->");
+
+    while(1) {
+        tecla = getch();
+        if (tecla == arriba) {
+            Menu = Menu == MenuInicio ? MenuFin: --Menu;
+            printf("\r  ");
+            goy(LineaDeInicio + Menu-1);
+            printf("->");
+        } else if (tecla == abajo) {
+            Menu = Menu == MenuFin ? MenuInicio: ++Menu;
+            printf("\r  ");
+            goy(LineaDeInicio + Menu-1);
+            printf("->");
+        } else if (tecla == VK_RETURN) {
+            break;
+        }
+    }
+    goy(10);
+    return Menu;
+}
+
 int menuTipo(){
 
     int MenuInicio = 1, MenuFin = 6, LineaDeInicio = 2, Menu = 1;
@@ -135,7 +189,7 @@ int menuTipo(){
 
     while(1) {
         tecla = getch();
-        if (tecla == arriba){
+        if (tecla == arriba) {
             Menu = Menu == MenuInicio ? MenuFin: --Menu;
             printf("\r  ");
             goy(LineaDeInicio + Menu-1);
@@ -171,7 +225,7 @@ int menuGama(){
 
     while(1) {
         tecla = getch();
-        if (tecla == arriba){
+        if (tecla == arriba) {
             Menu = Menu == MenuInicio ? MenuFin: --Menu;
             printf("\r  ");
             goy(LineaDeInicio + Menu-1);
@@ -207,7 +261,43 @@ int menuAutos(){
 
     while(1) {
         tecla = getch();
-        if (tecla == arriba){
+        if (tecla == arriba) {
+            Menu = Menu == MenuInicio ? MenuFin: --Menu;
+            printf("\r  ");
+            goy(LineaDeInicio + Menu-1);
+            printf("->");
+        } else if (tecla == abajo) {
+            Menu = Menu == MenuFin ? MenuInicio: ++Menu;
+            printf("\r  ");
+            goy(LineaDeInicio + Menu-1);
+            printf("->");
+        } else if (tecla == VK_RETURN) {
+            break;
+        }
+    }
+    goy(10);
+    system("@cls||clear");
+    return Menu;
+}
+
+int menuMejora(){
+
+    int MenuInicio = 1, MenuFin = 4, LineaDeInicio = 2, Menu = 1;
+    printf("\t\t MENU MEJORA\n");
+    goy(LineaDeInicio);
+    printf("   Ver mejoras \n");
+    printf("   Agregar o quitar mejora \n");
+    printf("   Personalizar color \n");
+    printf("   Volver atras \n");
+
+    char tecla;
+
+    goy(LineaDeInicio);
+    printf("->");
+
+    while(1) {
+        tecla = getch();
+        if (tecla == arriba) {
             Menu = Menu == MenuInicio ? MenuFin: --Menu;
             printf("\r  ");
             goy(LineaDeInicio + Menu-1);
@@ -247,7 +337,7 @@ void *menuRecorrer(Mapx *mapa, bool *compra){
 
     while(1) {
         tecla = getch();
-        if (tecla == arriba){
+        if (tecla == arriba) {
             Menu = Menu == MenuInicio ? MenuFin: --Menu;
             printf("\r  ");
             goy(LineaDeInicio3 + Menu-1);
@@ -286,7 +376,6 @@ void *menuRecorrer(Mapx *mapa, bool *compra){
 
             autoSelec = NULL;
             break;
-
 
         default:
 
@@ -517,19 +606,486 @@ void *mostrarGama(Mapx *mapa){
 void imprimirAuto(tipoAuto *autoSelec){
 
     printf("\t\tINFO DEL AUTO\n\n");;
-    printf("modelo: %s\n",autoSelec->nombre);
-    printf("tipo: %s\n",autoSelec->tipo);
-    printf("gama: %s\n",autoSelec->gama);
-    printf("marca: %s\n",autoSelec->marca);
-    printf("estado: %s\n",autoSelec->estado);
-    printf("precio: %s\n",autoSelec->precio); //CAMBIAR**************************************
-    if(autoSelec->disponibles > 0) printf("Auto Disponible\n");
-    else printf("Auto no Disponible\n");
+    printf(" Modelo: %s\n",autoSelec->nombre);
+    printf(" Tipo: %s\n",autoSelec->tipo);
+    printf(" Gama: %s\n",autoSelec->gama);
+    printf(" Marca: %s\n",autoSelec->marca);
+    printf(" Estado: %s\n",autoSelec->estado);
+    printf(" Precio: %llu\n",autoSelec->precio);
+    if(autoSelec->disponibles > 0) printf(" Auto Disponible\n");
+    else printf(" Auto no Disponible\n");
     printf("\n\n");
 
 }
 
+void mostrarMejoras(Mapx *mapa, tipoMejora **vecMejoras, char *tipo){
+
+    int opcion;
+    int i;
+    bool hayMejora;
+    unsigned long long suma;
+
+    do
+    {
+        system("@cls||clear");
+        opcion = menuMejora();
+        hayMejora = false;
+
+        switch(opcion)
+        {
+            case 1: // VER MEJORAS
+                suma = 0;
+                printf("\t MEJORAS AGREGADAS\n\n");
+                for(i = 0; i < 7; i++)
+                {
+
+                    if(vecMejoras[i] != NULL)
+                    {
+                        printf(" Nombre: %s\n",vecMejoras[i]->nombre);
+                        printf(" Precio: %d\n",vecMejoras[i]->precio);
+                        printf("\n");
+                        suma += vecMejoras[i]->precio;
+                        hayMejora = true;
+                    }
+
+                }
+                if(hayMejora == false)
+                {
+                    printf(" No hay mejoras agregadas al auto.\n\n");
+                }
+                else printf(" TOTAL: %llu\n\n", suma);
+                printf(" Presione cualquier tecla para volver atras...\n");
+                getch();
+
+                break;
+
+            case 2: // AGREGAR MEJORA
+
+                elegirMejora(mapa,vecMejoras,tipo);
+                break;
+
+            case 3: // ELEGIR COLOR
+
+                elegirColor(mapa,vecMejoras);
+                break;
+
+            case 4: // VOLVER ATRAS
+
+                return;
+
+            default:
+
+                break;
+        }
+
+    }while(1);
+}
+
+void elegirMejora(Mapx *mapa, tipoMejora **vecMejoras, char *tipo){
+
+    tipoMejora *mejora = searchMapx(mapa, tipo);
+    bool repetido;
+    int i;
+
+    int Menu = 1, MenuInicio = 1, MenuFin = 5, LineaDeInicio2 = 7;
+
+    do
+    {
+
+        repetido = false;
+
+        system("@cls||clear");
+
+        printf("\t MEJORAS\n\n");
+        printf(" Nombre: %s\n",mejora->nombre);
+        printf(" Precio: %d\n",mejora->precio);
+
+        Menu = 1;
+        goy(LineaDeInicio2);
+
+        printf("   Anterior \n");
+        printf("   Siguiente \n");
+        printf("   Agregar mejora \n");
+        printf("   Quitar mejora \n");
+        printf("   Volver atras \n");
+
+        char tecla;
+
+        goy(LineaDeInicio2);
+        printf("->");
+
+        while(1) {
+            tecla = getch();
+            if (tecla == arriba) {
+                Menu = Menu == MenuInicio ? MenuFin: --Menu;
+                printf("\r  ");
+                goy(LineaDeInicio2 + Menu-1);
+                printf("->");
+            } else if (tecla == abajo) {
+                Menu = Menu == MenuFin ? MenuInicio: ++Menu;
+                printf("\r  ");
+                goy(LineaDeInicio2 + Menu-1);
+                printf("->");
+            } else if (tecla == VK_RETURN) {
+                break;
+            }
+        }
+        goy(10);
+
+        switch(Menu)
+        {
+
+            case 1:
+
+                mejora = mapxPrevList(mapa);
+                break;
+
+            case 2:
+
+                mejora = mapxNextList(mapa);
+                break;
+
+            case 3:
+
+                for(i = 0; i < 6; i++)
+                {
+                    if(vecMejoras[i] != NULL){
+                        if(equalTipoMejora(mejora, vecMejoras[i]) == 1)
+                        {
+                            repetido = true;
+                            break;
+                        }
+                    }
+                }
+                if(repetido == true)
+                {
+                    goy(5);
+                    printf(" La mejora ya ha sido agregada anteriormente.");
+                    getch();
+                    break;
+                }
+
+                for(i = 0; i < 6; i++)
+                {
+                    if(vecMejoras[i] == NULL)
+                    {
+                        vecMejoras[i] = mejora;
+                        goy(5);
+                        printf(" Mejora agregada :D\n");
+                        getch();
+                        break;
+                    }
+                }
+                break;
+
+            case 4:
+
+                for(i = 0; i < 6; i++)
+                {
+                    if(vecMejoras[i] == NULL)
+                    {
+                        goy(5);
+                        printf(" La mejora que intenta quitar no ha sido agregada anteriormente.\n");
+                        getch();
+                        break;
+                    }
+                    if(equalTipoMejora(mejora, vecMejoras[i]) == 1)
+                    {
+                        vecMejoras[i] = NULL;
+                        goy(5);
+                        printf(" Mejora quitada correctamente.\n");
+                        getch();
+                        break;
+                    }
+                }
+
+
+                break;
+
+
+            case 5:
+
+                return;
+
+            default:
+
+                break;
+
+        }
+    }while(1);
+}
+
+void elegirColor(Mapx *mapa, tipoMejora **vecMejoras){
+    tipoMejora *color = searchMapx(mapa, "color");
+    bool repetido;
+    int i;
+
+    int Menu = 1, MenuInicio = 1, MenuFin = 5, LineaDeInicio2 = 7;
+
+    do
+    {
+
+        repetido = false;
+
+        system("@cls||clear");
+
+        printf("\t COLORES\n\n");
+        printf(" %s\n",color->nombre);
+        printf(" Precio: %d\n",color->precio);
+
+        Menu = 1;
+        goy(LineaDeInicio2);
+
+        printf("   Anterior \n");
+        printf("   Siguiente \n");
+        printf("   Agregar color \n");
+        printf("   Quitar color \n");
+        printf("   Volver atras \n");
+
+        char tecla;
+
+        goy(LineaDeInicio2);
+        printf("->");
+
+        while(1) {
+            tecla = getch();
+            if (tecla == arriba) {
+                Menu = Menu == MenuInicio ? MenuFin: --Menu;
+                printf("\r  ");
+                goy(LineaDeInicio2 + Menu-1);
+                printf("->");
+            } else if (tecla == abajo) {
+                Menu = Menu == MenuFin ? MenuInicio: ++Menu;
+                printf("\r  ");
+                goy(LineaDeInicio2 + Menu-1);
+                printf("->");
+            } else if (tecla == VK_RETURN) {
+                break;
+            }
+        }
+        goy(10);
+
+        switch(Menu)
+        {
+
+            case 1:
+
+                color = mapxPrevList(mapa);
+                break;
+
+            case 2:
+
+                color = mapxNextList(mapa);
+                break;
+
+            case 3:
+
+                if(vecMejoras[6] == NULL)
+                {
+                    vecMejoras[6] = color;
+                    goy(5);
+                    printf(" Color agregado :D\n");
+                    getch();
+                    return;
+                }
+                else
+                {
+                    vecMejoras[6] = color;
+                    goy(5);
+                    printf(" Color reemplazado :D\n");
+                    getch();
+                    return;
+                }
+
+                break;
+
+            case 4:
+
+                if(vecMejoras[i] == NULL)
+                {
+                    goy(5);
+                    printf(" El color que intenta quitar no ha sido agregado anteriormente.\n");
+                    getch();
+                    break;
+                }
+                if(equalTipoMejora(color, vecMejoras[6]) == 1)
+                {
+                    vecMejoras[6] = NULL;
+                    goy(5);
+                    printf(" Color quitado correctamente.\n");
+                    getch();
+                    break;
+                }
+
+                break;
+
+
+            case 5:
+
+                return;
+
+            default:
+
+                break;
+
+        }
+    }while(1);
+}
+
+void pagar(tipoUsuario *usuario){
+
+    printf("\e[?25h");
+    char dato[101];
+
+    do{
+        system("@cls||clear");
+        printf("\t\tMENU PAGAR\n\n");
+        printf("Ingrese numero de tarjeta: ");
+        scanf("%[^\n]100s", dato);
+        fflush(stdin);
+        printf("\n");
+        if(!stringEqual(usuario->numeroTar, dato))
+        {
+            printf("Numero de tarjeta erroneo.\n");
+            printf("Presione cualquier tecla para intentar nuevamente...");
+            getch();
+            continue;
+        }
+        printf("Ingrese fecha de vencimiento de la tarjeta: ");
+        scanf("%[^\n]100s", dato);
+        fflush(stdin);
+        printf("\n");
+        if(!stringEqual(usuario->vencimientoTar, dato))
+        {
+            printf("Fecha de vencimiento erronea.\n");
+            printf("Presione cualquier tecla para intentar nuevamente...");
+            getch();
+            continue;
+        }
+        printf("Ingrese numero verificador: ");
+        scanf("%[^\n]100s", dato);
+        fflush(stdin);
+        printf("\n");
+        if(!stringEqual(usuario->cvvTar, dato))
+        {
+            printf("Numero de verificacion erroneo.\n");
+            printf("Presione cualquier tecla para continuar nuevamente...");
+            getch();
+            continue;
+        }
+        printf("\t      DATOS CORRECTOS.\n\n");
+        printf("Presione cualquier tecla para continuar...");
+        getch();
+        break;
+    }while(1);
+    system("@cls||clear");
+    return;
+}
+
+bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario){
+
+    int i, LineaDeInicio = 23, MenuInicio = 1, MenuFin = 2, Menu = 1;
+    char a[1001];
+
+    unsigned long long total = autoSelec->precio;
+
+    FILE *menu2 = fopen ("menu2.txt", "rb");
+    if(menu2 == NULL)
+    {
+        printf("NO SE PUDO ABRIR EL ARCHIVO");
+        return 1;
+    }
+
+    while (fgets(a,1000,menu2) != NULL) {
+        printf ("\t%s", a);
+    }
+
+    printf("\n");
+
+    imprimirAuto(autoSelec);
+
+    printf("\t\t   MEJORAS\n\n");
+
+    if(mejoras[0] != NULL || mejoras[6] != NULL)
+    {
+        for(int i = 0; i < 7 ; i++)
+        {
+            if(mejoras[i] != NULL)
+            {
+                printf(" Nombre: %s\n",mejoras[i]->nombre);
+                printf(" Precio: %d\n",mejoras[i]->precio);
+                printf("\n");
+                total += mejoras[i]->precio;
+                LineaDeInicio += 2;
+            }
+        }
+    }
+    else printf(" No hay mejoras agregadas al auto.\n\n");
+
+    printf(" PRECIO TOTAL = $%llu\n", total);
+
+    goy(LineaDeInicio);
+    printf("   Pagar \n");
+    printf("   Volver \n");
+
+    goy(LineaDeInicio);
+    printf("->");
+    char tecla;
+    while(1) {
+        tecla = getch();
+        if (tecla == arriba) {
+            Menu = Menu == MenuInicio ? MenuFin: --Menu;
+            printf("\r  ");
+            goy(LineaDeInicio + Menu-1);
+            printf("->");
+        } else if (tecla == abajo) {
+            Menu = Menu == MenuFin ? MenuInicio: ++Menu;
+            printf("\r  ");
+            goy(LineaDeInicio + Menu-1);
+            printf("->");
+        } else if (tecla == VK_RETURN) {
+            break;
+        }
+    }
+
+    if(Menu == 1) return true;
+    else return false;
+}
+
+void boleta(tipoAuto *autoSelec, tipoMejora **mejoras){
+    unsigned long long total = autoSelec->precio;
+
+    imprimirAuto(autoSelec);
+
+    printf("\n");
+
+    printf("\t\t   MEJORAS\n\n");
+
+    for(int i = 0; i < 7 ; i++)
+    {
+        if(mejoras[i] != NULL)
+        {
+            printf(" Nombre: %s\n",mejoras[i]->nombre);
+            printf(" Precio: %d\n",mejoras[i]->precio);
+            printf("\n");
+            total += mejoras[i]->precio;
+        }
+    }
+    printf(" TOTAL = $%llu\n\n", total);
+    return;
+}
+
 // FUNCIONES PROGRAMA ---------------------------------------------------------------------------------------------------------------------
+
+unsigned long long charANumero(char *charNumero){
+
+    int largo = strlen(charNumero);
+    unsigned long long numero = 0;
+
+    for(int i = 0; i < largo; i++) numero = (charNumero[i] - 48) + (numero*10);
+
+    return numero;
+}
 
 int stringEqual(const void * key1, const void * key2) {
 
@@ -548,14 +1104,16 @@ void goy(int y){
     SetConsoleCursorPosition(hoon,pos);
 }
 
-void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama){
+void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama, Mapx *mapaMejoras){
 
     FILE *archivo;
     char linea[1001];
 
-    //LEER DATOS PARA MAPA DE USUARIOS.
-
     tipoUsuario *datoUsuario;
+    tipoAuto *datoAuto;
+    tipoMejora *datoMejora;
+
+    //LEER DATOS PARA MAPA DE USUARIOS.
 
     archivo = fopen("usuarios.txt","r");
     if(archivo == NULL)
@@ -564,7 +1122,7 @@ void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama){
         ExitProcess(1);
     }
 
-    while(fgets(linea, 1000, archivo)!= NULL)
+    while(fgets(linea, 1000, archivo) != NULL)
     {
         datoUsuario = crearUsuarioCSV(linea);
         insertMap(mapaUsuario, datoUsuario->rut, datoUsuario);
@@ -572,9 +1130,7 @@ void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama){
 
     fclose(archivo);
 
-    //LEER DATOS PARA MAPA ENLAZADO TIPO, mas coas
-
-    tipoAuto *datoAuto;
+    //LEER DATOS PARA MAPA ENLAZADO TIPO Y GAMA.
 
     archivo = fopen("autos.txt","r");
     if(archivo == NULL)
@@ -583,17 +1139,95 @@ void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama){
         ExitProcess(1);
     }
 
-    while(fgets(linea, 1000, archivo)!= NULL)
+    while(fgets(linea, 1000, archivo) != NULL)
     {
         datoAuto = crearAutoCSV(linea);
 
         insertMapx(mapaTipo, datoAuto->tipo, datoAuto);
         insertMapx(mapaGama, datoAuto->gama, datoAuto);
-        //ACA SE PONEN LOS OTROS INSERT (precio)
+        //mapa precio
     }
 
     fclose(archivo);
 
+    //LEER DATOS MAPA MEJORAS
+
+    archivo = fopen("mejoras.txt","r");
+    if(archivo == NULL)
+    {
+        printf("ERROR AL ABRIR ARCHIVO\n");
+        ExitProcess(1);
+    }
+
+    while(fgets(linea, 1000, archivo) != NULL)
+    {
+        datoMejora = crearMejoraCSV(linea);
+        insertMapx(mapaMejoras, datoMejora->tipo, datoMejora);
+    }
+
+    fclose(archivo);
+
+}
+
+void actualizarBD(Mapx *mapaGama){
+    system("@cls||clear");
+    FILE *archivo = fopen("autos.txt","w");
+    if(archivo == NULL) ExitProcess(1);
+
+    tipoAuto *recorrer = searchMapx(mapaGama,"Baja");
+    tipoAuto *aux = recorrer;
+
+    while(recorrer != NULL)
+    {
+        fprintf(archivo,"%u;",recorrer->ID);
+        fprintf(archivo,"%s;",recorrer->nombre);
+        fprintf(archivo,"%s;",recorrer->marca);
+        fprintf(archivo,"%s;",recorrer->tipo);
+        fprintf(archivo,"%s;",recorrer->gama);
+        fprintf(archivo,"%s;",recorrer->estado);
+        fprintf(archivo,"%llu;",recorrer->precio);
+        fprintf(archivo,"%u\n",recorrer->disponibles);
+        recorrer = mapxNextList(mapaGama);
+        if(equalTipoAuto(recorrer, aux)) break;
+    }
+
+    recorrer = searchMapx(mapaGama,"Media");
+    aux = recorrer;
+
+    while(recorrer != NULL)
+    {
+        fprintf(archivo,"%u;",recorrer->ID);
+        fprintf(archivo,"%s;",recorrer->nombre);
+        fprintf(archivo,"%s;",recorrer->marca);
+        fprintf(archivo,"%s;",recorrer->tipo);
+        fprintf(archivo,"%s;",recorrer->gama);
+        fprintf(archivo,"%s;",recorrer->estado);
+        fprintf(archivo,"%llu;",recorrer->precio);
+        fprintf(archivo,"%u\n",recorrer->disponibles);
+        recorrer = mapxNextList(mapaGama);
+        if(equalTipoAuto(recorrer, aux)) break;
+    }
+
+    recorrer = searchMapx(mapaGama,"Alta");
+    aux = recorrer;
+
+    while(recorrer != NULL)
+    {
+        fprintf(archivo,"%u;",recorrer->ID);
+        fprintf(archivo,"%s;",recorrer->nombre);
+        fprintf(archivo,"%s;",recorrer->marca);
+        fprintf(archivo,"%s;",recorrer->tipo);
+        fprintf(archivo,"%s;",recorrer->gama);
+        fprintf(archivo,"%s;",recorrer->estado);
+        fprintf(archivo,"%llu;",recorrer->precio);
+        fprintf(archivo,"%u\n",recorrer->disponibles);
+        recorrer = mapxNextList(mapaGama);
+        if(equalTipoAuto(recorrer, aux)) break;
+    }
+
+    fclose(archivo);
+
+    return;
 }
 
 char * _strdup (const char *s) {
@@ -640,24 +1274,27 @@ void *crearAutoCSV(char *linea){
 
     tipoAuto *datoAuto = (tipoAuto *) malloc (sizeof(tipoAuto));
 
-    datoAuto->ID = atoi(get_csv_field(linea, 1));
+    datoAuto->ID = charANumero(get_csv_field(linea, 1));
     datoAuto->nombre = get_csv_field(linea, 2);
     datoAuto->marca = get_csv_field(linea, 3);
     datoAuto->tipo = get_csv_field(linea, 4);
     datoAuto->gama = get_csv_field(linea, 5);
     datoAuto->estado = get_csv_field(linea, 6);
-    datoAuto->precio = get_csv_field(linea, 7); // CAMBIAR************************ PONER ATOI CUANDO EL ERICqK LO ARREGLE XD
-    datoAuto->disponibles = atoi(get_csv_field(linea,8));
+    datoAuto->precio = charANumero(get_csv_field(linea, 7));
+    datoAuto->disponibles = charANumero(get_csv_field(linea,8));
 
     return datoAuto;
 }
 
-void *crearChar(){
+void *crearMejoraCSV(char *linea){
 
-    char *dato = (char *) malloc(sizeof(char)*101);
-    scanf("%100[^\n]s", dato);
-    fflush(stdin);
-    return dato;
+    tipoMejora *datoMejora = (tipoMejora *) malloc (sizeof(tipoMejora));
+
+    datoMejora->nombre = get_csv_field(linea, 1);
+    datoMejora->tipo = get_csv_field(linea, 2);
+    datoMejora->precio = charANumero(get_csv_field(linea, 3));
+
+    return datoMejora;
 }
 
 const char *get_csv_field (char * tmp, int i) {
@@ -672,27 +1309,45 @@ const char *get_csv_field (char * tmp, int i) {
     return NULL;
 }
 
+int equalTipoAuto(void *data1, void *data2){
+
+    tipoAuto *auto1 = (tipoAuto *) data1;
+    tipoAuto *auto2 = (tipoAuto *) data2;
+
+    if(auto1->ID == auto2->ID) return 1;
+    else return 0;
+}
+
+int equalTipoMejora(void * data1, void * data2){
+
+    tipoMejora *A = data1;
+    tipoMejora *B = data2;
+
+    if(strcmp(A->nombre,B->nombre) == 0) return 1;
+    else return 0;
+
+}
+
 // FUNCIONES MENU PRINCIPAL ---------------------------------------------------------------------------------------------------------------------
 
-bool ingresarUsuario(tipoUsuario *usuario, Map *mapaUsuario){
+tipoUsuario *ingresarUsuario(Map *mapaUsuario){
 
-    char rut[1001];
+    char rut[101];
     char clave[1001];
     int cont = 3;
+
+    tipoUsuario *usuario;
 
     do
     {
         printf("\t\tINICIO DE SESION\n\n");
         printf("Si quiere devolverse al menu principal ingrese 0.\n\n");
         printf("Ingrese su rut: ");
-        scanf("%[^\n]1000s",rut);
+        scanf("%[^\n]100s",rut);
         fflush(stdin);
         printf("\n");
 
-        if(rut[0] == '0')
-        {
-            return false;
-        }
+        if(rut[0] == '0') return NULL;
 
         printf("Ingrese su clave: ");
         scanf("%[^\n]1000s",clave);
@@ -710,7 +1365,7 @@ bool ingresarUsuario(tipoUsuario *usuario, Map *mapaUsuario){
                 getch();
                 system("@cls||clear");
             }
-            else return true;
+            else return usuario;
         }
         else
         {
@@ -730,10 +1385,21 @@ bool ingresarUsuario(tipoUsuario *usuario, Map *mapaUsuario){
         }
 
     }while(1);
+}
 
+void *crearChar(){
+
+    char *dato = (char *) malloc(sizeof(char)*101);
+    scanf("%100[^\n]s", dato);
+    fflush(stdin);
+    return dato;
 }
 
 void registrarUsuario(Map *mapaUsuarios){
+
+        char *dato;
+        int i;
+        int largo;
 
         FILE *archivo = fopen("usuarios.txt","a");
         if(archivo == NULL)
@@ -742,35 +1408,106 @@ void registrarUsuario(Map *mapaUsuarios){
             ExitProcess(0);
         }
 
-        char *dato;
-
         tipoUsuario *usuario = (tipoUsuario *) malloc (sizeof(tipoUsuario));
 
-        printf("\t\t REGISTRO DE CUENTA\n\n");
-
-        printf("Datos de la cuenta\n\n");
-
-        printf("Ingrese su RUT: ");
-        dato = crearChar();
-        usuario->rut = dato;
-        printf("\n");
-
-        if(searchMap(mapaUsuarios, usuario->rut) != NULL)
+        do
         {
-            free(usuario);
-            free(dato);
-            printf("El rut ya esta registrado por favor ingrese con su cuenta.\n\n");
-            printf("Presione cualquier tecla para volver al menu principal...\n");
-            getch();
-            return;
-        }
+
+            printf("\t\t REGISTRO DE CUENTA\n\n");
+            printf("Datos de la cuenta\n\n");
+            printf("RUT (Formato: sin puntos ni digito verificador. Ejemplo: 12345678): ");
+            dato = crearChar();
+            printf("\n");
+
+            largo = strlen(dato);
+            if(largo < 7 || largo > 8)
+            {
+                printf("Formato del RUT incorrecto, presione cualquier tecla para continuar..\n");
+                getch();
+                system("@cls||clear");
+                free(dato);
+                continue;
+            }
+
+            for(i = 0; i < largo; i++)
+            {
+                if(isdigit(dato[i]) == 0)
+                {
+                    dato[0] = '\0';
+                    break;
+                }
+            }
+
+            if(dato[0] == '\0')
+            {
+                printf("Formato del RUT incorrecto, presione cualquier tecla para continuar...\n");
+                getch();
+                system("@cls||clear");
+                free(dato);
+                continue;
+            }
+
+            usuario->rut = dato;
+
+            if(searchMap(mapaUsuarios, dato) != NULL)
+            {
+                free(dato);
+                free(usuario);
+                printf("El rut ya esta registrado por favor ingrese con su cuenta.\n\n");
+                printf("Presione cualquier tecla para volver al menu principal...\n");
+                getch();
+                return;
+            }
+
+            break;
+
+        }while(1);
+
         fprintf(archivo,"%s;",dato);
 
-        printf("Invente una clave de usuario: ");
-        dato = crearChar();
+        do
+        {
+            system("@cls||clear");
+            printf("\t\t REGISTRO DE CUENTA\n\n");
+            printf("Datos de la cuenta\n\n");
+            printf("RUT (Formato: sin puntos ni digito verificador. Ejemplo: 12345678): %s\n\n", usuario->rut);
+
+            printf("Ingrese una clave de usuario: ");
+            dato = crearChar();
+            printf("\n");
+
+            largo = strlen(dato);
+            if(largo < 8 || largo > 24)
+            {
+                printf("La clave debe contener entre 8 y 24 caracteres y deben ser solo letras y numeros.\n");
+                printf("Presione cualquier tecla para reintentarlo.\n");
+                getch();
+                free(dato);
+                continue;
+            }
+
+            for(i = 0; i < largo; i++)
+            {
+                if(isalnum(dato[i]) == 0)
+                {
+                    dato[0] = '\0';
+                    break;
+                }
+            }
+            if(dato[0] == '\0')
+            {
+                printf("La clave debe contener entre 8 y 24 caracteres y deben ser solo letras y numeros.\n");
+                printf("Presione cualquier tecla para reintentarlo.\n");
+                getch();
+                free(dato);
+                continue;
+            }
+
+            break;
+
+        }while(1);
         usuario->clave = dato;
         fprintf(archivo,"%s;",dato);
-        printf("\n");
 
         printf("Datos personales\n\n");
 
@@ -842,4 +1579,5 @@ void comprobarMapa(Mapx *mapa){
     getch();
 
 }
+
 

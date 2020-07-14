@@ -1,24 +1,64 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "funciones.h"
-#include "Map.h"
 #include <windows.h>
+#include "Funciones.h"
+#include "MapaEnlazado.h"
+#include "ArbolBinario.h"
+#include "Map.h"
+#include "list.h"
+
+struct tipoAuto{ //******************************************************************
+
+    unsigned int ID;
+    char *nombre;
+    char *marca;
+    char *tipo;
+    char *gama;
+    char *estado;
+    unsigned long long precio;
+    unsigned int disponibles;
+};
+
+struct tipoUsuario{
+
+    char *rut;
+    char *clave;
+    char *nombre;
+    char *nacimiento;
+    char *tipoDeUsuario;
+    char *numeroTar;
+    char *vencimientoTar;
+    char *cvvTar;
+};
 
 int main(){
 
-    system("color 3F");
+    system("color 0D");
+
     int opcion;
-    int opcionMenuAuto;
+    char tecla;
+    bool usuarioReconocido;
     tipoAuto *autoSelec;
+    tipoAuto *aux;
     tipoUsuario *usuario;
-    bool usuarioReconocido = false;
 
     Map *mapaUsuario = createMap(stringHash,stringEqual);
-    Mapx *mapaTipo = createMapx();
-    Mapx *mapaGama = createMapx();
+    Mapx *mapaTipo = createMapx(equalTipoAuto);
+    Mapx *mapaGama = createMapx(equalTipoAuto);
+    Mapx *mapaMejoras = createMapx(equalTipoMejora);
 
-    llenarBD(mapaUsuario, mapaTipo, mapaGama);
+    llenarBD(mapaUsuario, mapaTipo, mapaGama, mapaMejoras);
+
+    inicio:
+
+    usuarioReconocido = false;
+    autoSelec = NULL;
+    aux = NULL;
+    usuario = NULL;
+
+    tipoMejora **vecMejoras = (tipoMejora **) calloc (7, sizeof(tipoMejora *));
+    if(vecMejoras == NULL) return 1;
 
     portada();
     printf("Presione cualquier tecla para continuar...");
@@ -32,18 +72,23 @@ int main(){
         switch(opcion)
         {
             case 1:
+
                 printf("\e[?25h"); // HACE VISIBLE EL CURSOR
-                if(ingresarUsuario(usuario, mapaUsuario)) usuarioReconocido = true;
+                usuario = ingresarUsuario(mapaUsuario);
+                if(usuario != NULL) usuarioReconocido = true;
                 break;
+
             case 2:
+
                 printf("\e[?25h"); //HACE VISIBLE EL CURSOR
                 registrarUsuario(mapaUsuario);
                 break;
             case 3:
+
                 autoSelec = mostrarAutos(mapaTipo, mapaGama);
                 if(autoSelec != NULL)
                 {
-                    printf("Tienes que estar registrado para poder comprar autos.\n");
+                    printf(" Tienes que estar registrado para poder comprar autos.\n");
                     getch();
                 }
                 break;
@@ -57,12 +102,116 @@ int main(){
         }
         if(usuarioReconocido) break;
     }
-    printf("AQUI DEBERIA PASAR AL SIGUIENTE MENU\n");//****************************************
-    return 0;
+
+    printf("\e[?25l"); // ESCONDE EL CURSOR
+
     while(1)
     {
-        //opcion = menu2();
-    }
+        system("@cls||clear");
+        opcion = menu2();
+        switch(opcion)
+        {
+            case 1: // Ver autos
 
+                system("@cls||clear");
+                aux = autoSelec;
+                autoSelec = mostrarAutos(mapaTipo, mapaGama);
+                if(autoSelec == NULL){
+                    autoSelec = aux;
+                    break;
+                }
+                else
+                {
+                    if(autoSelec->disponibles == 0)
+                    {
+                        autoSelec = NULL;
+                        printf("El auto seleccionado actualmente no esta disponible, pruebe con otro.");
+                        getch();
+                        break;
+                    }
+
+                    printf(" El auto %s ha sido agregado al carro de compras. ", autoSelec->nombre);
+                    printf("Presione cualquier tecla para continuar...\n");
+                    getch();
+                }
+                for(int i = 0 ; i < 7 ; i++) vecMejoras[i] = NULL;
+
+                break;
+
+            case 2: // Mejorar y personalizar auto
+
+                if(autoSelec != NULL)
+                {
+                    system("@cls||clear");
+                    mostrarMejoras(mapaMejoras, vecMejoras, autoSelec->tipo);
+                }
+                else
+                {
+                    printf("\n Debes haber agregado un auto al carro de compras para poder personalizarlo.\n");
+                    getch();
+                    system("@cls||clear");
+                }
+                break;
+
+            case 3: //Ir al carro de compras.
+
+                if(autoSelec == NULL)
+                {
+                    printf("\n Debe agregar un auto al carro de compras. Presione cualquier tecla para volver continuar.\n");
+                    getch();
+                    system("@cls||clear");
+                    break;
+                }
+                system("@cls||clear");
+                if(comprar(autoSelec, vecMejoras, usuario))
+                {
+                    pagar(usuario);
+                    printf("\n");
+                    printf(" BOLETA:\n");
+                    boleta(autoSelec, vecMejoras);
+                    printf(" Presione escape para salir o enter para continuar usando el programa...");
+                    tecla = getch();
+                    autoSelec->disponibles--;
+                    actualizarBD(mapaGama);
+
+                    if(tecla == VK_RETURN)
+                    {
+                        system("@cls||clear");
+                        free(vecMejoras);
+                        goto inicio;
+                    }
+                    if(tecla == VK_ESCAPE)
+                    {
+                        system("@cls||clear");
+                        portada();
+                        ExitProcess(1);
+                    }
+                }
+
+                break;
+
+            case 4: //Salir
+
+                system("@cls||clear");
+                portada();
+                return 0;
+
+            default:
+                break;
+
+        }
+    }
     return 0;
 }
+
+
+/**
+VERIFICAR TAMAÑO DEL ARREGLO DEL TDA SEBASTIAN
+implementar abol y modificarlo
+implementar mostrar por precios
+mejorar interfaz
+Documentar funciones
+Poner musica
+quitar struct del main
+PONER MAS LUJOSOS
+*/

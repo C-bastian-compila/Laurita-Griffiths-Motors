@@ -12,7 +12,7 @@ recibe una funcion equal.
 
 Retorna un puntero al mapa creado.
 */
-Mapx *createMapx();
+Mapx *createMapx(int (*equalData)(void *, void *));
 
 /**
 Inserta un elemento no existente en el mapa.

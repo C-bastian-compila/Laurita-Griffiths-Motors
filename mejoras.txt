@@ -1,0 +1,47 @@
+COLOR ROJO;color;400000
+COLOR AZUL;color;400000
+COLOR VERDE;color;400000
+COLOR BLANCO;color;400000
+COLOR ROJO;color;400000
+COLOR AZUL;color;400000
+COLOR VERDE;color;400000
+COLOR BLANCO;color;400000
+COLOR NEGRO;color;100000
+COLOR MORADO;color;400000
+COLOR ROSA;color;400000
+COLOR GRIS;color;400000
+COLOR FLUOR;color;600000
+COLOR CROMADO;color;600000
+COLOR ARCOIRIS;color;600000
+COLOR BOREAL;color;600000
+COLOR TRANSPARENTE;color;800000
+Equipo de sonido estereo PRO;Casual;180000
+Cierre centralizado a distancia;Casual;150000
+Aire acondicionado con climatizador;Casual;120000
+Alzavidrios electricos en 4 puertas;Casual;230000
+Panel indicador Digital;Casual;80000
+Sunroof;Casual;300000
+Mejora de motor I;Deportivo;700000
+Mejora de motor II;Deportivo;1400000
+Llantas personalizadas;Deportivo;1090000
+Barras estabilizadoras;Deportivo;2000000
+Amortiguadores premium;Deportivo;1500000
+Asientos personalisados;Deportivo;1300000
+Lavado en oro;Deportivo Lujoso;9700000
+Diamantes incrustados;Deportivo Lujoso;21990000
+Nehumaticos ultra durables;Deportivo Lujoso;7990000
+Llantas de oro personalizadas;Deportivo Lujoso;909000
+Asientos personalizados;Deportivo Lujoso;5090000
+Tubo de escape de diamante;Deportivo Lujoso;15090000
+Llantas personalizadas;Lujoso;4090090
+Asientos personalizados;Lujoso;700000
+Mejora de motor;Lujoso;1400000
+Nehumaticos ultra durables;Lujoso;2090000
+Equipo de sonido estereo PRO;Lujoso;180000
+Lavado en oro;Lujoso;9700000
+Amortiguadores premium;Todo terreno;1500000
+Llantas personalizadas;Todo terreno;1090000
+Asientos personalizados;Todo terreno;5090000
+Mejora de motor;Todo terreno;1400000
+Nehumaticos mejorados;Todo terreno;324000
+Aumentar capacidad del estanque;Todo terreno;190000

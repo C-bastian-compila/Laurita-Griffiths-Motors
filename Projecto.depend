@@ -105,33 +105,40 @@
 	"Map.h"
 	<windows.h>
 
-1594187942 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.c
-	"Funciones.h"
+1594675066 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<stdbool.h>
 	<string.h>
+	<windows.h>
+	"Funciones.h"
 	"Map.h"
 	"MapaEnlazado.h"
-	<windows.h>
+	"ArbolBinario.h"
+	"list.h"
 
-1594185893 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.h
+1594674509 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\funciones.h
 	<stdbool.h>
 	"Map.h"
 	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
 
-1594168116 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.h
+1594410376 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.h
 
-1594180518 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\main.c
+1594674748 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
-	"funciones.h"
-	"Map.h"
 	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
 
-1594168116 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.c
+1594410376 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\map.c
 	"Map.h"
 	<math.h>
 	<string.h>
@@ -139,7 +146,7 @@
 	<stdint.h>
 	<assert.h>
 
-1594183121 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.c
+1594616477 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -148,7 +155,7 @@
 	"MapaEnlazado.h"
 	"Funciones.h"
 
-1594183121 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.h
+1594411604 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\mapaenlazado.h
 
 1594165306 source:c:\users\soule\desktop\laurita-griffiths-motors\funciones.c
 	"Funciones.h"
@@ -464,4 +471,517 @@
 	<assert.h>
 	"MapaEnlazado.h"
 	"Funciones.h"
+
+1594410376 source:c:\users\soule\desktop\estructura\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594410376 c:\users\soule\desktop\estructura\laurita-griffiths-motors\map.h
+
+1594411604 source:c:\users\soule\desktop\estructura\laurita-griffiths-motors\funciones.c
+	"Funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	<windows.h>
+
+1594412767 c:\users\soule\desktop\estructura\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+
+1594411604 c:\users\soule\desktop\estructura\laurita-griffiths-motors\mapaenlazado.h
+
+1594411604 source:c:\users\soule\desktop\estructura\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"funciones.h"
+	"Map.h"
+	<windows.h>
+
+1594413367 source:c:\users\soule\desktop\estructura\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594591980 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\arbolbinario.h
+
+1575518496 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\list.h
+
+1575518496 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1594591980 source:c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\arbolbinario.h
+
+1594676032 source:c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594676157 c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594410376 c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\map.h
+
+1594411604 c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\mapaenlazado.h
+
+1575514896 c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\list.h
+
+1575514896 source:c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1594410376 source:c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594616477 source:c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594675574 source:c:\users\erikb\downloads\laurita-griffiths-motors (5)\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594591980 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\arbolbinario.h
+
+1575514896 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1575514896 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\list.h
+
+1594675574 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594676157 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594410376 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\map.h
+
+1594411604 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\mapaenlazado.h
+
+1594410376 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594616477 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594679070 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594591980 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\arbolbinario.h
+
+1575514896 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1575514896 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\list.h
+
+1594683851 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594684309 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594410376 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\map.h
+
+1594411604 c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\mapaenlazado.h
+
+1594410376 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594616477 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594683560 source:c:\users\erikb\desktop\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594591980 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\arbolbinario.h
+
+1575518496 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1575518496 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\list.h
+
+1594689139 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594689062 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594410376 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\map.h
+
+1594411604 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\mapaenlazado.h
+
+1594410376 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594616477 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594689062 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors fasfasfas - copia\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594591980 source:c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\arbolbinario.h
+
+1575514896 source:c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1575514896 c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\list.h
+
+1594696149 source:c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594696114 c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594410376 c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\map.h
+
+1594411604 c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\mapaenlazado.h
+
+1594410376 source:c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594616477 source:c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594695015 source:c:\users\erikb\downloads\laurita-griffiths-motors (4)\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594591980 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\arbolbinario.h
+
+1594751469 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594747777 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594410376 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\map.h
+
+1594411604 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\mapaenlazado.h
+
+1575518496 c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\list.h
+
+1575518496 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1594751240 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594410376 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594750254 source:c:\users\sebapucv\desktop\proyecto estructura\proyecto lgm\laurita-griffiths-motors final v1\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594591980 source:c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594591931 c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\arbolbinario.h
+
+1575514896 source:c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1575514896 c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\list.h
+
+1594754007 source:c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594747777 c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594410376 c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\map.h
+
+1594411604 c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\mapaenlazado.h
+
+1594410376 source:c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594750254 source:c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594754589 source:c:\users\soule\desktop\laurita-griffiths-motors\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
 

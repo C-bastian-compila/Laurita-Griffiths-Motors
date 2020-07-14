@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include "Map.h"
 #include "MapaEnlazado.h"
+#include "ArbolBinario.h"
+#include "list.h"
 
 typedef struct tipoAuto tipoAuto;
 typedef struct tipoUsuario tipoUsuario;
@@ -15,7 +17,7 @@ Lee los datos del usuario y busca su existencia en el mapa usuarios.
 Retorna un Bool para verificar ingreso exitoso de usuario.
 
 */
-bool ingresarUsuario();
+tipoUsuario *ingresarUsuario();
 
 /**
 Funcion Hash encargada de otorgar una posicion en los mapas.
@@ -40,7 +42,7 @@ Lee los archivos para obtener los datos necesarios y los almacena en los TDA.
 
 Recibe como parametros los diferentes mapas a llenar.
 */
-void llenarBD(Map *, Mapx *, Mapx *);
+void llenarBD(Map *, Mapx *, Mapx *, Mapx *);
 
 /**
 
@@ -66,7 +68,7 @@ Recibe el Mapa donde se ubican todos los usuarios.
 void registrarUsuario(Map *);
 
 /**
-
+Crea un dato tipo char, reserva memoria y devuelve un puntero a esta.
 */
 void *crearChar();
 
@@ -89,7 +91,7 @@ Devuelve un puntero del dato creado.
 void *crearUsuarioCSV(char *);
 
 /**
-
+Cambia la posición del cursor.
 */
 void goy(int);
 
@@ -146,7 +148,14 @@ Muestra por pantalla el Menu principal del programa.
 
 Devuelve un int el cual indica la opcion escogida.
 */
-extern int menu1(void);
+int menu1(void);
+
+/**
+Muestra por pantalla el Menu de usuario registrado.
+
+Devuelve un int el cual indica la opcion escogida.
+*/
+int menu2(void);
 
 /**
 Muestra por pantalla el inicio de la aplicacion.
@@ -159,5 +168,44 @@ Muestra por pantalla las opciones para mostrar los autos del programa.
 Devuelve un int el cual indica la opcion escogida.
 */
 int menuAutos(void);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+int menuMejora(void);
+
+/**
+ Compara si los datos tipo Auto son iguales. Retorna 1 si son iguales y 0 si no.
+*/
+int equalTipoAuto(void *, void *);
+
+/**
+ Compara si los datos tipo Mejora son iguales. Retorna 1 si son iguales y 0 si no.
+*/
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+int equalTipoMejora(void *, void *);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+void mostrarMejoras(Mapx *, tipoMejora **, char *);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+void elegirMejora(Mapx *, tipoMejora **, char *);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+void *crearMejoraCSV(char *);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+bool comprar(tipoAuto *, tipoMejora **, tipoUsuario *);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+void pagar(tipoUsuario *);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+void boleta(tipoAuto *, tipoMejora **);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+void actualizarBD(Mapx *);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+unsigned long long charANumero(char *charNumero);
 
 #endif // FUNCIONES_H_INCLUDED

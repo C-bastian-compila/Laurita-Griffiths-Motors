@@ -14,18 +14,6 @@ struct nodeMapx{
     nodeMapx *next;
 };
 
-struct tipoAuto{
-
-    unsigned int ID;
-    char *nombre;
-    char *marca;
-    char *tipo;
-    char *gama;
-    char *estado;
-    unsigned long precio;
-    unsigned int disponibles;
-};
-
 struct Mapx{
 
     nodeMapx ** buckets;
@@ -34,20 +22,20 @@ struct Mapx{
     int count; // Cantidad de datos no nulos
     int size; // Tamaño del arreglo
     int loadFactor;
+    int (*equalData)(void *node1, void *node2);
 
 };
 
 int hashMapx(const char * , int);
 int equalMapx(const void * , const void *);
-int equalTipoAuto(void *, void *);
 int  fixCollision(int , int);
 void enlargeMapx(Mapx *);
-int insertList(nodeMapx *, nodeMapx *);
-nodeMapx *createNodeMapx(const void * , const void * );
+int insertList(Mapx*,nodeMapx *, nodeMapx *);
+nodeMapx *createNodeMapx(const void *, const void *);
 
-Mapx *createMapx() {
+Mapx *createMapx(int (*equalData)(void *node1, void *node2)) {
 
-    int size = 80;
+    int size = 100; //OYE OYE OYE********************************************************************
 
     Mapx *mapa = (Mapx *) malloc(sizeof(Mapx));
     assert(mapa != NULL);
@@ -60,7 +48,7 @@ Mapx *createMapx() {
     mapa->currIndex = -1;
     mapa->size = size;
     mapa->loadFactor = (long)ceil(size * 0.77);
-
+    mapa->equalData = equalData;
     return mapa;
 }
 
@@ -75,7 +63,6 @@ nodeMapx *createNodeMapx(const void * key, const void * data) {
     node->next = NULL;
 
     return node;
-
 }
 
 int hashMapx(const char * key, int size){
@@ -102,16 +89,6 @@ int equalMapx(const void * key1, const void * key2){ // retorna 1 si las claves 
 
     if(strcmp(A,B) == 0) return 1;
     else return 0;
-
-}
-
-int equalTipoAuto(void *node1, void *node2){ //retorna 1 si los tipoAuto son el mismo auto y 0 si no son el mismo.
-
-    tipoAuto *auto1 = (tipoAuto *) node1;
-    tipoAuto *auto2 = (tipoAuto *) node2;
-
-    if(auto1->ID == auto2->ID) return 1;
-    else return 0;
 }
 
 int  fixCollision(int index, int size){
@@ -130,7 +107,7 @@ void enlargeMapx(Mapx *mapa){
     long newSize = mapa->size * 2;
 
     mapa->buckets = (nodeMapx **) malloc(sizeof(nodeMapx *) * newSize);
-    memset(mapa->buckets, 0, newSize * sizeof(nodeMapx *)); // DUDA: no se como funciona esta wea pero deberia limpiar el vector********************************************
+    memset(mapa->buckets, 0, newSize * sizeof(nodeMapx *)); // DUDA: no se como funciona pero deberia limpiar el vector********************************************
     mapa->count = 0;
     mapa->size = newSize;
     mapa->loadFactor = (long)ceil(newSize * 0.77);
@@ -155,18 +132,17 @@ void enlargeMapx(Mapx *mapa){
     return;
 }
 
-int insertList(nodeMapx *node, nodeMapx *newNode){ // Retorna 1 si se pudo ingresar el dato y 0 si no.
+int insertList(Mapx* mapa, nodeMapx *node, nodeMapx *newNode){ // Retorna 1 si se pudo ingresar el dato y 0 si no.
 
-    nodeMapx* aux=node;
+    nodeMapx* aux = node;
 
     while(aux->next != NULL)
     {
-        if(equalTipoAuto(aux->data, newNode->data)) return 0;
+        if(mapa->equalData(aux->data, newNode->data)) return 0;
         aux = aux->next;
-
     }
 
-    if(equalTipoAuto(node->data,newNode->data)) return 0;
+    if(mapa->equalData(node->data,newNode->data)) return 0;
 
     newNode->prev = aux;
     aux->next = newNode;
@@ -176,7 +152,7 @@ int insertList(nodeMapx *node, nodeMapx *newNode){ // Retorna 1 si se pudo ingre
 
 void insertMapx(Mapx *mapa, void *key, void *data){
 
-    if(mapa == NULL) return NULL;
+    if(mapa == NULL) return;
 
     if((mapa->count + 1) > mapa->loadFactor) enlargeMapx(mapa);
 
@@ -193,7 +169,6 @@ void insertMapx(Mapx *mapa, void *key, void *data){
         }
         else
         {
-
             if(equalMapx(mapa->buckets[index]->key ,key))
             {
                 if(mapa->buckets[index]->data == NULL)
@@ -207,13 +182,11 @@ void insertMapx(Mapx *mapa, void *key, void *data){
                 else
                 {
                     nodeMapx *newNode = createNodeMapx(key, data);
-                    if(insertList(mapa->buckets[index], newNode)) mapa->count++; //suma uno al cont si se pudo ingresar el nodo.
+                    if(insertList(mapa,mapa->buckets[index], newNode)) mapa->count++; //suma uno al cont si se pudo ingresar el nodo.
                     return;
                 }
-
             }
             else index = fixCollision(index, mapa->size);
-
         }
 
     }while(1);
