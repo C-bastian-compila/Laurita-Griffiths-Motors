@@ -12,15 +12,20 @@ struct TreeNode {
     TreeNode * left;
     TreeNode * right;
     TreeNode * parent;
+
+    TreeNode * next;
+    TreeNode * prev;
 };
 
 struct BinaryTree {
 
     TreeNode * root;
     TreeNode * current;
+    TreeNode * currList;
 };
 
 TreeNode * createTreeNode(int, void *);
+void insertListTree(TreeNode *nodo, TreeNode *nuevo);
 
 TreeNode * createTreeNode(int key, void * value) {
 
@@ -28,7 +33,13 @@ TreeNode * createTreeNode(int key, void * value) {
     if (node == NULL) return NULL;
     node->key = key;
     node->value = value;
-    node->parent = node->left = node->right = NULL;
+
+    node->parent = NULL;
+    node->left =NULL;
+    node->right=NULL;
+    node->next=NULL;
+    node->prev=NULL;
+
     return node;
 }
 
@@ -36,7 +47,9 @@ BinaryTree * createBinaryTree() {
 
     BinaryTree * node = (BinaryTree *)malloc(sizeof(BinaryTree));
     if (node == NULL) return NULL;
-    node->root = node->current = NULL;
+    node->root = NULL;
+    node->current = NULL;
+    node->currList = NULL;
     return node;
 }
 
@@ -55,6 +68,9 @@ void insertBinaryTree(BinaryTree * tree, int key, void * value) {
         } else if (key > aux->key) {
             aux = aux->right;
         } else {
+
+            TreeNode* nuevo = createTreeNode(key,value);
+            insertListTree(aux,nuevo);
             return;
         }
     }
@@ -72,9 +88,32 @@ void insertBinaryTree(BinaryTree * tree, int key, void * value) {
     }
 }
 
+void * firstBinaryTree(BinaryTree * tree) {
+    if (tree == NULL || tree->root == NULL) return NULL;
+
+    TreeNode * aux = tree->root;
+
+    while (aux->left != NULL) {
+        aux = aux->left;
+    }
+
+    tree->current = aux;
+    tree->currList=tree->current;
+
+    if (tree->current == NULL) return NULL;
+
+    return (void *)tree->current->value;
+}
+
 void * nextBinaryTree(BinaryTree * tree) {
 
     if (tree == NULL || tree->root == NULL || tree->current == NULL) return NULL;
+
+    if(tree->currList != NULL && tree->currList->next != NULL)
+    {
+        tree->currList=tree->currList->next;
+        return tree->currList->value;
+    }
 
     if (tree->current->right != NULL)
     {
@@ -84,9 +123,8 @@ void * nextBinaryTree(BinaryTree * tree) {
             aux = aux->left;
         }
 
-        //tree->current = minimum(aux);
-
         tree->current = aux;
+        tree->currList=tree->current;
 
         if (tree->current == NULL) return NULL;
 
@@ -102,8 +140,26 @@ void * nextBinaryTree(BinaryTree * tree) {
     }
 
     tree->current = aux;
+    tree->currList=tree->current;
 
     if (aux == NULL) return NULL;
 
     return (void *)aux->value;
 }
+
+void insertListTree(TreeNode *nodo, TreeNode *nuevo){
+
+    TreeNode* aux= nodo;
+
+    while (aux->next != NULL)
+    {
+        aux=aux->next;
+    }
+
+    nuevo->prev=aux;
+    aux->next=nuevo;
+
+    return;
+}
+
+
