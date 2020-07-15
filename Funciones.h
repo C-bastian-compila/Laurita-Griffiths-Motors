@@ -123,7 +123,7 @@ void *mostrarGama(Mapx *);
 void *menuRecorrer(Mapx *, bool *);
 
 /**
-
+Imprime los datos del auto.
 */
 void imprimirAuto(tipoAuto *);
 
@@ -167,7 +167,11 @@ Devuelve un int el cual indica la opcion escogida.
 */
 int menuAutos(void);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Muestra por pantalla las opciones para el menu de las mejoras.
+
+Devuelve un int el cual indica la opcion escogida.
+*/
 int menuMejora(void);
 
 /**
@@ -178,35 +182,58 @@ int equalTipoAuto(void *, void *);
 /**
  Compara si los datos tipo Mejora son iguales. Retorna 1 si son iguales y 0 si no.
 */
-
-//FALTA DOCUMENTAR **********************************************************************************************************
 int equalTipoMejora(void *, void *);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Procesa la opcion otorgada por el menu mejora.
+*/
 void mostrarMejoras(Mapx *, tipoMejora **, char *);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Muestra por pantalla las mejoras disponibles al tipo de auto,
+ademas permite agregar y eliminarlas de la compra.
+*/
 void elegirMejora(Mapx *, tipoMejora **, char *);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Crea un puntero a un struct tipoMejora y le asigna los valores respectivos.
+
+Recibe un puntero tipo char.
+
+Devuelve un puntero del dato creado.
+*/
 void *crearMejoraCSV(char *);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Muestra por pantalla el auto y mejoras elegidas, ademas del precio a pagar.
+
+Retorna un bool con el cual se verifica si se desea comprar o no.
+*/
 bool comprar(tipoAuto *, tipoMejora **, tipoUsuario *, unsigned long long *);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Pide a a los usuarios los datos de su tarjeta y los comprueba con las ingresadas inicialmente.
+*/
 void pagar(tipoUsuario *);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Entrega por pantalla los datos de los autos y mejoras elegidas, ademas del precio a pagar.
+*/
 void boleta(tipoAuto *, tipoMejora **, unsigned long long);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Una vez realizada la compra se actualiza la base de datos con los cambios realizados tanto al usuario como a los autos.
+*/
 void actualizarBD(Mapx *, Map *);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Transforma un caracter en dato numerico.
+*/
 unsigned long long charANumero(char *charNumero);
 
-//FALTA DOCUMENTAR **********************************************************************************************************
+/**
+Imprime los datos del auto.
+*/
 void imprimirBoleta(tipoAuto *);
 
 #endif // FUNCIONES_H_INCLUDED
