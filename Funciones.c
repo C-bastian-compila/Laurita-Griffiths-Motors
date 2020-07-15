@@ -62,7 +62,7 @@ int menu1(){
         int Menu = 1;
 
         goy(LineaDeInicio);
-        printf("   Iniciar Usuario \n");
+        printf("   Iniciar Sesion \n");
         printf("   Registrar nueva cuenta \n");
         printf("   Ver autos \n");
         printf("   Salir \n");
@@ -586,7 +586,7 @@ void mostrarPrecios(BinaryTree *arbol){
     tipoAuto* dato = firstBinaryTree(arbol);
     if(dato == NULL) return;
 
-    int MenuInicio = 1, MenuFin = 2, LineaDeInicio = 18, Menu = 1;
+    int MenuInicio = 1, MenuFin = 2, LineaDeInicio = 22, Menu = 1;
 
     char tecla;
 
@@ -602,14 +602,15 @@ void mostrarPrecios(BinaryTree *arbol){
         for(i = 0; i < 5; i++)
         {
 
-            printf("%s\n", dato->nombre);
-            printf("%llu\n\n", dato->precio);
+            printf(" Nombre: %s\n", dato->nombre);
+            printf(" Tipo: %s\n", dato->tipo);
+            printf(" Precio: %llu\n\n", dato->precio);
             dato = nextBinaryTree(arbol);
 
             if(dato == NULL)
             {
                 goy(LineaDeInicio);
-                printf("Presione cualquier tecla para volver al menu anterior...\n");
+                printf(" Se han mostrado todos los vehiculos. Presione cualquier tecla para volver al menu anterior...\n");
                 printf("\r                                                        ");
                 getch();
                 return;
@@ -1056,7 +1057,7 @@ void pagar(tipoUsuario *usuario){
 
 bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario, unsigned long long *precio){
 
-    int i, LineaDeInicio = 23, MenuInicio = 1, MenuFin = 2, Menu = 1;
+    int i, LineaDeInicio = 20, MenuInicio = 1, MenuFin = 2, Menu = 1;
     char a[1001];
 
     unsigned long long total = autoSelec->precio;
@@ -1088,11 +1089,15 @@ bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario, un
                 printf(" Precio: %d\n",mejoras[i]->precio);
                 printf("\n");
                 total += mejoras[i]->precio;
-                LineaDeInicio += 2;
+                LineaDeInicio += 3;
             }
         }
     }
-    else printf(" No hay mejoras agregadas al auto.\n\n");
+    else
+    {
+        LineaDeInicio += 2;
+        printf(" No hay mejoras agregadas al auto.\n\n");
+    }
 
     printf(" PRECIO TOTAL = $%llu\n\n", total);
 
@@ -1101,7 +1106,7 @@ bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario, un
         total -= (unsigned long long)ceil(total * 0.1);
         printf(" Se ha descontado el diez por ciento por ser Usuario VIP.\n\n");
         printf(" PRECIO TOTAL CON DESCUENTO = $%llu\n", total);
-        LineaDeInicio += 3;
+        LineaDeInicio += 4;
     }
 
     *precio = total;
@@ -1150,6 +1155,7 @@ void boleta(tipoAuto *autoSelec, tipoMejora **mejoras, unsigned long long precio
                 printf("\n");
             }
         }
+        printf("---------------------------------------------\n");
         printf(" TOTAL = $%llu\n\n", precio);
         return;
     }
