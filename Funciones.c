@@ -13,31 +13,7 @@
 #define abajo 0x50
 #define arriba 0x48
 
-// ESTRUCTURAS ---------------------------------------------------------------------------------------------------------------------
-
-struct tipoAuto{
-
-    unsigned int ID;
-    char *nombre;
-    char *marca;
-    char *tipo;
-    char *gama;
-    char *estado;
-    unsigned long long precio;
-    unsigned int disponibles;
-};
-
-struct tipoUsuario{
-
-    char *rut;
-    char *clave;
-    char *nombre;
-    char *nacimiento;
-    char *tipoDeUsuario;
-    char *numeroTar;
-    char *vencimientoTar;
-    char *cvvTar;
-};
+// ESTRUCTURAS ----------------------------------------------------------------------------------------------------------------
 
 struct tipoMejora{
 

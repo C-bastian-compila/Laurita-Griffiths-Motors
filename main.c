@@ -8,30 +8,6 @@
 #include "Map.h"
 #include "list.h"
 
-struct tipoAuto{ //******************************************************************
-
-    unsigned int ID;
-    char *nombre;
-    char *marca;
-    char *tipo;
-    char *gama;
-    char *estado;
-    unsigned long long precio;
-    unsigned int disponibles;
-};
-
-struct tipoUsuario{
-
-    char *rut;
-    char *clave;
-    char *nombre;
-    char *nacimiento;
-    char *tipoDeUsuario;
-    char *numeroTar;
-    char *vencimientoTar;
-    char *cvvTar;
-};
-
 int main(){
 
     system("color 0D");
@@ -209,10 +185,3 @@ int main(){
     return 0;
 }
 
-
-/**
-mejorar interfaz
-Documentar funciones
-quitar struct del main
-PONER MAS LUJOSOS
-*/

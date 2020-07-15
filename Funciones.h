@@ -11,6 +11,34 @@ typedef struct tipoAuto tipoAuto;
 typedef struct tipoUsuario tipoUsuario;
 typedef struct tipoMejora tipoMejora;
 
+// ESTRUCTURAS ---------------------------------------------------------------------------------------------------------------------
+
+struct tipoAuto{
+
+    unsigned int ID;
+    char *nombre;
+    char *marca;
+    char *tipo;
+    char *gama;
+    char *estado;
+    unsigned long long precio;
+    unsigned int disponibles;
+};
+
+struct tipoUsuario{
+
+    char *rut;
+    char *clave;
+    char *nombre;
+    char *nacimiento;
+    char *tipoDeUsuario;
+    char *numeroTar;
+    char *vencimientoTar;
+    char *cvvTar;
+};
+
+// Funciones ---------------------------------------------------------------------------------------------------------------------
+
 /**
 Lee los datos del usuario y busca su existencia en el mapa usuarios.
 
@@ -45,8 +73,7 @@ Recibe como parametros los diferentes mapas a llenar.
 void llenarBD(Map *, Mapx *, Mapx *, Mapx *, BinaryTree *);
 
 /**
-
-
+Funcion que duplica la cadena que es pasada por parametro.
 */
 char * _strdup (const char *);
 
@@ -96,7 +123,6 @@ Cambia la posición del cursor.
 void goy(int);
 
 /**
-
 Pregunta al usuario de que forma quiere ver los autos, ya sean tipo, gama o precio.
 
 retorna un puntero.
@@ -118,7 +144,7 @@ retorna un puntero.
 void *mostrarGama(Mapx *);
 
 /**
-
+Imprime un menu que permite ir viendo los autos y agregarlos al carro de compras.
 */
 void *menuRecorrer(Mapx *, bool *);
 
