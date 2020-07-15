@@ -985,3 +985,68 @@
 	"ArbolBinario.h"
 	"list.h"
 
+1594775566 source:c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594771764 c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\arbolbinario.h
+
+1575514896 source:c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1575514896 c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\list.h
+
+1594779649 source:c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594410376 c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\map.h
+
+1594771157 source:c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594411604 c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\mapaenlazado.h
+
+1594783980 c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594784040 source:c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594784214 source:c:\users\erikb\downloads\laurita-griffiths-motors (6)\laurita-griffiths-motors\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+

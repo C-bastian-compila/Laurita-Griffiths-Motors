@@ -192,18 +192,21 @@ void elegirMejora(Mapx *, tipoMejora **, char *);
 void *crearMejoraCSV(char *);
 
 //FALTA DOCUMENTAR **********************************************************************************************************
-bool comprar(tipoAuto *, tipoMejora **, tipoUsuario *);
+bool comprar(tipoAuto *, tipoMejora **, tipoUsuario *, unsigned long long *);
 
 //FALTA DOCUMENTAR **********************************************************************************************************
 void pagar(tipoUsuario *);
 
 //FALTA DOCUMENTAR **********************************************************************************************************
-void boleta(tipoAuto *, tipoMejora **);
+void boleta(tipoAuto *, tipoMejora **, unsigned long long);
 
 //FALTA DOCUMENTAR **********************************************************************************************************
 void actualizarBD(Mapx *, Map *);
 
 //FALTA DOCUMENTAR **********************************************************************************************************
 unsigned long long charANumero(char *charNumero);
+
+//FALTA DOCUMENTAR **********************************************************************************************************
+void imprimirBoleta(tipoAuto *);
 
 #endif // FUNCIONES_H_INCLUDED

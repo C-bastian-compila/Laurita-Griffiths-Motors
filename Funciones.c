@@ -698,8 +698,20 @@ void imprimirAuto(tipoAuto *autoSelec){
     printf(" Precio: %llu\n",autoSelec->precio);
     if(autoSelec->disponibles > 0) printf(" Auto Disponible\n");
     else printf(" Auto no Disponible\n");
-    printf("\n\n");
+    printf("\n");
 
+}
+
+void imprimirBoleta(tipoAuto *autoSelec){
+
+    printf("\t\tINFO DEL AUTO\n\n");;
+    printf(" Modelo: %s\n",autoSelec->nombre);
+    printf(" Tipo: %s\n",autoSelec->tipo);
+    printf(" Gama: %s\n",autoSelec->gama);
+    printf(" Marca: %s\n",autoSelec->marca);
+    printf(" Estado: %s\n",autoSelec->estado);
+    printf(" Precio: %llu\n",autoSelec->precio);
+    printf("\n");
 }
 
 void mostrarMejoras(Mapx *mapa, tipoMejora **vecMejoras, char *tipo){
@@ -1066,7 +1078,7 @@ void pagar(tipoUsuario *usuario){
     return;
 }
 
-bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario){
+bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario, unsigned long long *precio){
 
     int i, LineaDeInicio = 23, MenuInicio = 1, MenuFin = 2, Menu = 1;
     char a[1001];
@@ -1081,7 +1093,7 @@ bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario){
     }
 
     while (fgets(a,1000,menu2) != NULL) {
-        printf ("\t%s", a);
+        printf ("\t   %s", a);
     }
 
     printf("\n");
@@ -1106,14 +1118,17 @@ bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario){
     }
     else printf(" No hay mejoras agregadas al auto.\n\n");
 
+    printf(" PRECIO TOTAL = $%llu\n\n", total);
+
     if(strcmp(usuario->tipoDeUsuario, "VIP") == 0)
     {
         total -= (unsigned long long)ceil(total * 0.1);
         printf(" Se ha descontado el diez por ciento por ser Usuario VIP.\n\n");
-        LineaDeInicio += 2;
+        printf(" PRECIO TOTAL CON DESCUENTO = $%llu\n", total);
+        LineaDeInicio += 3;
     }
 
-    printf(" PRECIO TOTAL = $%llu\n", total);
+    *precio = total;
 
     goy(LineaDeInicio);
     printf("   Pagar \n");
@@ -1143,27 +1158,33 @@ bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario){
     else return false;
 }
 
-void boleta(tipoAuto *autoSelec, tipoMejora **mejoras){
-    unsigned long long total = autoSelec->precio;
+void boleta(tipoAuto *autoSelec, tipoMejora **mejoras, unsigned long long precio){
 
-    imprimirAuto(autoSelec);
-
-    printf("\n");
-
+    printf("---------------------------------------------\n");
+    imprimirBoleta(autoSelec);
+    printf("---------------------------------------------\n");
     printf("\t\t   MEJORAS\n\n");
-
-    for(int i = 0; i < 7 ; i++)
-    {
-        if(mejoras[i] != NULL)
+    if(mejoras[0] != NULL || mejoras[6] != NULL ){
+        for(int i = 0; i < 7 ; i++)
         {
-            printf(" Nombre: %s\n",mejoras[i]->nombre);
-            printf(" Precio: %d\n",mejoras[i]->precio);
-            printf("\n");
-            total += mejoras[i]->precio;
+            if(mejoras[i] != NULL)
+            {
+                printf(" Nombre: %s\n",mejoras[i]->nombre);
+                printf(" Precio: %d\n",mejoras[i]->precio);
+                printf("\n");
+            }
         }
+        printf(" TOTAL = $%llu\n\n", precio);
+        return;
     }
-    printf(" TOTAL = $%llu\n\n", total);
-    return;
+    else
+    {
+        printf(" No hay mejoras agregadas.\n\n");
+        printf("---------------------------------------------\n");
+        printf(" TOTAL = $%llu\n\n", precio);
+        return;
+    }
+
 }
 
 // FUNCIONES PROGRAMA ---------------------------------------------------------------------------------------------------------------------

@@ -38,6 +38,7 @@ int main(){
     printf("\e[?25l");
 
     int opcion;
+    unsigned long long precio;
     char tecla;
     bool usuarioReconocido;
     tipoAuto *autoSelec;
@@ -167,13 +168,13 @@ int main(){
                     break;
                 }
                 system("@cls||clear");
-                if(comprar(autoSelec, vecMejoras, usuario))
+                if(comprar(autoSelec, vecMejoras, usuario, &precio))
                 {
                     strcpy(usuario->tipoDeUsuario,"VIP");
                     pagar(usuario);
                     printf("\n");
                     printf(" BOLETA:\n");
-                    boleta(autoSelec, vecMejoras);
+                    boleta(autoSelec, vecMejoras, precio);
                     printf(" Presione escape para salir o enter para continuar usando el programa...");
                     tecla = getch();
                     autoSelec->disponibles--;
