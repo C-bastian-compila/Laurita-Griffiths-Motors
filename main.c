@@ -35,6 +35,7 @@ struct tipoUsuario{
 int main(){
 
     system("color 0D");
+    printf("\e[?25l");
 
     int opcion;
     char tecla;
@@ -47,8 +48,9 @@ int main(){
     Mapx *mapaTipo = createMapx(equalTipoAuto);
     Mapx *mapaGama = createMapx(equalTipoAuto);
     Mapx *mapaMejoras = createMapx(equalTipoMejora);
+    BinaryTree *arbolPrecios = createBinaryTree();
 
-    llenarBD(mapaUsuario, mapaTipo, mapaGama, mapaMejoras);
+    llenarBD(mapaUsuario, mapaTipo, mapaGama, mapaMejoras, arbolPrecios);
 
     inicio:
 
@@ -83,20 +85,21 @@ int main(){
                 printf("\e[?25h"); //HACE VISIBLE EL CURSOR
                 registrarUsuario(mapaUsuario);
                 break;
+
             case 3:
 
-                autoSelec = mostrarAutos(mapaTipo, mapaGama);
+                autoSelec = mostrarAutos(mapaTipo, mapaGama, arbolPrecios);
                 if(autoSelec != NULL)
                 {
                     printf(" Tienes que estar registrado para poder comprar autos.\n");
                     getch();
                 }
                 break;
+
             case 4:
                 portada();
                 return 0;
-            case 5: //caso de prueba**********************************
-                comprobarMapa(mapaTipo);
+
             default:
                 break;
         }
@@ -108,6 +111,7 @@ int main(){
     while(1)
     {
         system("@cls||clear");
+        printf("\e[?25l");
         opcion = menu2();
         switch(opcion)
         {
@@ -115,7 +119,7 @@ int main(){
 
                 system("@cls||clear");
                 aux = autoSelec;
-                autoSelec = mostrarAutos(mapaTipo, mapaGama);
+                autoSelec = mostrarAutos(mapaTipo, mapaGama, arbolPrecios);
                 if(autoSelec == NULL){
                     autoSelec = aux;
                     break;
@@ -165,6 +169,7 @@ int main(){
                 system("@cls||clear");
                 if(comprar(autoSelec, vecMejoras, usuario))
                 {
+                    strcpy(usuario->tipoDeUsuario,"VIP");
                     pagar(usuario);
                     printf("\n");
                     printf(" BOLETA:\n");
@@ -172,7 +177,7 @@ int main(){
                     printf(" Presione escape para salir o enter para continuar usando el programa...");
                     tecla = getch();
                     autoSelec->disponibles--;
-                    actualizarBD(mapaGama);
+                    actualizarBD(mapaGama, mapaUsuario);
 
                     if(tecla == VK_RETURN)
                     {
@@ -198,7 +203,6 @@ int main(){
 
             default:
                 break;
-
         }
     }
     return 0;
@@ -206,12 +210,8 @@ int main(){
 
 
 /**
-VERIFICAR TAMAÑO DEL ARREGLO DEL TDA SEBASTIAN
-implementar abol y modificarlo
-implementar mostrar por precios
 mejorar interfaz
 Documentar funciones
-Poner musica
 quitar struct del main
 PONER MAS LUJOSOS
 */

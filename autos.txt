@@ -16,7 +16,7 @@
 16;Q2 35 TFSI;Audi;Todo terreno;Alta;Nuevo;20890000;2
 17;R8 Coupe;Audi;Deportivo Lujoso;Alta;Nuevo;158990000;1
 18;TT Coupe;Audi;Deportivo;Alta;Nuevo;30990000;2
-19;RAV4 HíbridoToyota;Toyota;Todo terreno;Alta;Nuevo;22490000;6
+19;RAV4 HibridoToyota;Toyota;Todo terreno;Alta;Nuevo;22490000;6
 20;Yaris;Toyota;Casual;Media;Usado;2100000;30
 21;Yaris Sport;Toyota;Casual;Media;Nuevo;9690000;13
 22;Tundra;Toyota;Todo terreno;Alta;Nuevo;31490000;4

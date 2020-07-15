@@ -150,7 +150,8 @@ int menu2(){
     goy(LineaDeInicio);
     printf("->");
 
-    while(1) {
+    while(1)
+    {
         tecla = getch();
         if (tecla == arriba) {
             Menu = Menu == MenuInicio ? MenuFin: --Menu;
@@ -216,7 +217,7 @@ int menuGama(){
     printf("   Baja \n");
     printf("   Media \n");
     printf("   Alta \n");
-    printf("   Volver al menu principal \n");
+    printf("   Volver atras \n");
 
     char tecla;
 
@@ -249,7 +250,7 @@ int menuAutos(){
     int MenuInicio = 1, MenuFin = 4, LineaDeInicio = 2, Menu = 1;
     printf("\t\t MENU AUTOS\n");
     goy(LineaDeInicio);
-    printf("   Opcion VIP(Proximamente) \n");
+    printf("   Mostrar lista de Precios \n");
     printf("   Mostrar por tipo \n");
     printf("   Mostrar por gama \n");
     printf("   Volver al menu principal \n");
@@ -386,7 +387,7 @@ void *menuRecorrer(Mapx *mapa, bool *compra){
     return autoSelec;
 }
 
-void *mostrarAutos(Mapx *mapaTipo, Mapx *mapaGama){
+void *mostrarAutos(Mapx *mapaTipo, Mapx *mapaGama, BinaryTree *arbolPrecios){
 
     tipoAuto *autoSelec;
     int opcionMenuAuto;
@@ -396,8 +397,8 @@ void *mostrarAutos(Mapx *mapaTipo, Mapx *mapaGama){
         opcionMenuAuto = menuAutos();
         switch(opcionMenuAuto)
         {
-            case 1: // OPCION VIP
-                printf("PROXIMAMENTEEEEEE\n");
+            case 1: //MOSTRAR LISTA DE PRECIOS.
+                mostrarPrecios(arbolPrecios);
                 break;
 
             case 2: // OPCION TIPO
@@ -600,6 +601,89 @@ void *mostrarGama(Mapx *mapa){
         system("@cls||clear");
 
     }while(1);
+
+}
+
+void mostrarPrecios(BinaryTree *arbol){
+
+    int i;
+    tipoAuto* dato = firstBinaryTree(arbol);
+    if(dato == NULL) return;
+
+    int MenuInicio = 1, MenuFin = 2, LineaDeInicio = 18, Menu = 1;
+
+    char tecla;
+
+    do
+    {
+        printf("\t\t MENU PRECIO\n");
+        goy(LineaDeInicio);
+        printf("   Siguientes \n");
+        printf("   Volver al menu anterior \n");
+
+        goy(2);
+
+        for(i = 0; i < 5; i++)
+        {
+
+            printf("%s\n", dato->nombre);
+            printf("%llu\n\n", dato->precio);
+            dato = nextBinaryTree(arbol);
+
+            if(dato == NULL)
+            {
+                goy(LineaDeInicio);
+                printf("Presione cualquier tecla para volver al menu anterior...\n");
+                printf("\r                                                        ");
+                getch();
+                return;
+            }
+        }
+
+        goy(LineaDeInicio);
+        printf("->");
+
+        while(1) {
+            tecla = getch();
+            if (tecla == arriba) {
+                Menu = Menu == MenuInicio ? MenuFin: --Menu;
+                printf("\r  ");
+                goy(LineaDeInicio + Menu-1);
+                printf("->");
+            } else if (tecla == abajo) {
+                Menu = Menu == MenuFin ? MenuInicio: ++Menu;
+                printf("\r  ");
+                goy(LineaDeInicio + Menu-1);
+                printf("->");
+            } else if (tecla == VK_RETURN) {
+                break;
+            }
+        }
+        goy(10);
+        system("@cls||clear");
+
+        switch (Menu){
+
+            case 1:
+
+                break;
+
+            case 2:
+                return;
+
+            default:
+                break;
+
+        }
+
+
+    }while(1);
+
+
+
+
+
+
 
 }
 
@@ -1022,6 +1106,13 @@ bool comprar(tipoAuto *autoSelec, tipoMejora **mejoras, tipoUsuario *usuario){
     }
     else printf(" No hay mejoras agregadas al auto.\n\n");
 
+    if(strcmp(usuario->tipoDeUsuario, "VIP") == 0)
+    {
+        total -= (unsigned long long)ceil(total * 0.1);
+        printf(" Se ha descontado el diez por ciento por ser Usuario VIP.\n\n");
+        LineaDeInicio += 2;
+    }
+
     printf(" PRECIO TOTAL = $%llu\n", total);
 
     goy(LineaDeInicio);
@@ -1104,7 +1195,7 @@ void goy(int y){
     SetConsoleCursorPosition(hoon,pos);
 }
 
-void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama, Mapx *mapaMejoras){
+void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama, Mapx *mapaMejoras, BinaryTree *arbolPrecios){
 
     FILE *archivo;
     char linea[1001];
@@ -1145,7 +1236,7 @@ void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama, Mapx *mapaMejora
 
         insertMapx(mapaTipo, datoAuto->tipo, datoAuto);
         insertMapx(mapaGama, datoAuto->gama, datoAuto);
-        //mapa precio
+        insertBinaryTree(arbolPrecios, datoAuto->precio, datoAuto);
     }
 
     fclose(archivo);
@@ -1169,7 +1260,8 @@ void llenarBD(Map *mapaUsuario, Mapx *mapaTipo, Mapx *mapaGama, Mapx *mapaMejora
 
 }
 
-void actualizarBD(Mapx *mapaGama){
+void actualizarBD(Mapx *mapaGama, Map *mapaUsuario){
+
     system("@cls||clear");
     FILE *archivo = fopen("autos.txt","w");
     if(archivo == NULL) ExitProcess(1);
@@ -1223,6 +1315,26 @@ void actualizarBD(Mapx *mapaGama){
         fprintf(archivo,"%u\n",recorrer->disponibles);
         recorrer = mapxNextList(mapaGama);
         if(equalTipoAuto(recorrer, aux)) break;
+    }
+
+    fclose(archivo);
+
+    archivo = fopen("usuarios.txt","w");
+    if(archivo == NULL) ExitProcess(1);
+
+    tipoUsuario *recorrerUsuario = firstMap(mapaUsuario);
+
+    while(recorrerUsuario != NULL)
+    {
+        fprintf(archivo,"%s;",recorrerUsuario->rut);
+        fprintf(archivo,"%s;",recorrerUsuario->clave);
+        fprintf(archivo,"%s;",recorrerUsuario->nombre);
+        fprintf(archivo,"%s;",recorrerUsuario->nacimiento);
+        fprintf(archivo,"%s;",recorrerUsuario->tipoDeUsuario);
+        fprintf(archivo,"%s;",recorrerUsuario->numeroTar);
+        fprintf(archivo,"%s;",recorrerUsuario->vencimientoTar);
+        fprintf(archivo,"%s\n",recorrerUsuario->cvvTar);
+        recorrerUsuario = nextMap(mapaUsuario);
     }
 
     fclose(archivo);
@@ -1555,29 +1667,5 @@ void registrarUsuario(Map *mapaUsuarios){
         fclose(archivo);
 
         return;
-
 }
-
-// FUNCIONES PARA TESTEOS ---------------------------------------------------------------------------------------------------------------------
-
-void comprobarMapa(Mapx *mapa){
-
-    int aux = 0;
-    tipoAuto *current = searchMapx(mapa,"Deportivo");
-
-    do
-    {
-        printf("%s\n", current->ID);
-        printf("%s\n", current->nombre);
-        current = mapxNextList(mapa);
-        getch();
-        aux++;
-
-    }while(aux != 10);
-
-    printf("LISTOOOOO\n");
-    getch();
-
-}
-
 

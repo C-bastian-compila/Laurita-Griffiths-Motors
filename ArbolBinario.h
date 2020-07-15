@@ -14,14 +14,16 @@ BinaryTree * createBinaryTree();
 Crea e incerta un nuevo dato en el sistema a travez de la key, si la key ya existe
 se linkea con el dato ya existente.
 */
-void insertBinaryTree(BinaryTree *, int, void *);
+void insertBinaryTree(BinaryTree *, unsigned long long, void *);
 
 /**
 Entrega un puntero al siguiente dato del arbol siempre y cuando no existan mas valores linkeados.
 */
 void * nextBinaryTree(BinaryTree *);
 
-
-
+/**
+Retorna el primer dato del árbol (el que tiene la menor clave).
+*/
+void * firstBinaryTree(BinaryTree *);
 
 #endif // ARBOLBINARIO_H_INCLUDED

@@ -7,14 +7,14 @@ typedef struct BinaryTree BinaryTree;
 
 struct TreeNode {
 
-    int key;
+    unsigned long long key;
     void * value;
     TreeNode * left;
     TreeNode * right;
     TreeNode * parent;
 
     TreeNode * next;
-    TreeNode * prev;
+
 };
 
 struct BinaryTree {
@@ -24,10 +24,10 @@ struct BinaryTree {
     TreeNode * currList;
 };
 
-TreeNode * createTreeNode(int, void *);
+TreeNode * createTreeNode(unsigned long long, void *);
 void insertListTree(TreeNode *nodo, TreeNode *nuevo);
 
-TreeNode * createTreeNode(int key, void * value) {
+TreeNode * createTreeNode(unsigned long long key, void * value) {
 
     TreeNode * node = (TreeNode *) malloc(sizeof(TreeNode));
     if (node == NULL) return NULL;
@@ -38,7 +38,6 @@ TreeNode * createTreeNode(int key, void * value) {
     node->left =NULL;
     node->right=NULL;
     node->next=NULL;
-    node->prev=NULL;
 
     return node;
 }
@@ -53,7 +52,7 @@ BinaryTree * createBinaryTree() {
     return node;
 }
 
-void insertBinaryTree(BinaryTree * tree, int key, void * value) {
+void insertBinaryTree(BinaryTree * tree, unsigned long long key, void * value) {
 
     if (tree == NULL) return;
 
@@ -89,6 +88,7 @@ void insertBinaryTree(BinaryTree * tree, int key, void * value) {
 }
 
 void * firstBinaryTree(BinaryTree * tree) {
+
     if (tree == NULL || tree->root == NULL) return NULL;
 
     TreeNode * aux = tree->root;
@@ -156,7 +156,6 @@ void insertListTree(TreeNode *nodo, TreeNode *nuevo){
         aux=aux->next;
     }
 
-    nuevo->prev=aux;
     aux->next=nuevo;
 
     return;

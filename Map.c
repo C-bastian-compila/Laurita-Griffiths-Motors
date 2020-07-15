@@ -65,6 +65,7 @@ struct Map {
 };
 
 static void enlarge(Map * map) {
+
     if (map->primeIndex == (primeLength - 1)) return; // se verifica si super el ultimo indice.
 
     long newSize = primes[++(map->primeIndex)]; // se obtiene el nuevo size y se aumento el primeIndex.
@@ -213,6 +214,7 @@ void * firstMap(Map * map) {
 }
 
 void * nextMap(Map * map) {
+
     assert(map != NULL); // El mapa no puede ser NULL.
 
     if (map->buckets == NULL) return NULL;

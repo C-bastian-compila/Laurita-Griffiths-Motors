@@ -30,12 +30,12 @@ int hashMapx(const char * , int);
 int equalMapx(const void * , const void *);
 int  fixCollision(int , int);
 void enlargeMapx(Mapx *);
-int insertList(Mapx*,nodeMapx *, nodeMapx *);
+void insertList(Mapx*,nodeMapx *, nodeMapx *);
 nodeMapx *createNodeMapx(const void *, const void *);
 
 Mapx *createMapx(int (*equalData)(void *node1, void *node2)) {
 
-    int size = 100; //OYE OYE OYE********************************************************************
+    int size = 100;
 
     Mapx *mapa = (Mapx *) malloc(sizeof(Mapx));
     assert(mapa != NULL);
@@ -47,7 +47,7 @@ Mapx *createMapx(int (*equalData)(void *node1, void *node2)) {
     mapa->count = 0;
     mapa->currIndex = -1;
     mapa->size = size;
-    mapa->loadFactor = (long)ceil(size * 0.77);
+    mapa->loadFactor = (int)ceil(mapa->size * 0.77);
     mapa->equalData = equalData;
     return mapa;
 }
@@ -107,10 +107,11 @@ void enlargeMapx(Mapx *mapa){
     long newSize = mapa->size * 2;
 
     mapa->buckets = (nodeMapx **) malloc(sizeof(nodeMapx *) * newSize);
-    memset(mapa->buckets, 0, newSize * sizeof(nodeMapx *)); // DUDA: no se como funciona pero deberia limpiar el vector********************************************
+    memset(mapa->buckets, 0, newSize * sizeof(nodeMapx *));
+
     mapa->count = 0;
     mapa->size = newSize;
-    mapa->loadFactor = (long)ceil(newSize * 0.77);
+    mapa->loadFactor = (int)ceil(newSize * 0.77);
 
     for (int i = 0; i < oldSize; i++)
     {
@@ -118,7 +119,11 @@ void enlargeMapx(Mapx *mapa){
         {
             if (oldBucket[i]->data != NULL)
             {
-                insertMapx(mapa, oldBucket[i]->key, oldBucket[i]->data);
+                //insertMapx(mapa, oldBucket[i]->key, oldBucket[i]->data);
+                mapa->buckets[i] = oldBucket[i];
+                mapa->count++;
+                //free(oldBucket[i]);
+
             }
             else
             {
@@ -132,22 +137,22 @@ void enlargeMapx(Mapx *mapa){
     return;
 }
 
-int insertList(Mapx* mapa, nodeMapx *node, nodeMapx *newNode){ // Retorna 1 si se pudo ingresar el dato y 0 si no.
+void insertList(Mapx* mapa, nodeMapx *node, nodeMapx *newNode){
 
     nodeMapx* aux = node;
 
     while(aux->next != NULL)
     {
-        if(mapa->equalData(aux->data, newNode->data)) return 0;
+        if(mapa->equalData(aux->data, newNode->data)) return;
         aux = aux->next;
     }
 
-    if(mapa->equalData(node->data,newNode->data)) return 0;
+    if(mapa->equalData(node->data,newNode->data)) return;
 
     newNode->prev = aux;
     aux->next = newNode;
 
-    return 1;
+    return;
 }
 
 void insertMapx(Mapx *mapa, void *key, void *data){
@@ -178,11 +183,10 @@ void insertMapx(Mapx *mapa, void *key, void *data){
                     return;
 
                 }
-
                 else
                 {
                     nodeMapx *newNode = createNodeMapx(key, data);
-                    if(insertList(mapa,mapa->buckets[index], newNode)) mapa->count++; //suma uno al cont si se pudo ingresar el nodo.
+                    insertList(mapa,mapa->buckets[index], newNode);
                     return;
                 }
             }
@@ -205,9 +209,8 @@ void *searchMapx(Mapx *mapa, const void *key){
             if(equalMapx(mapa->buckets[index]->key, key ))
             {
                 mapa->currIndex = index;
-                mapa->currNode = mapa->buckets[index]; // ***************************************************
+                mapa->currNode = mapa->buckets[index];
                 return mapa->buckets[index]->data;
-
             }
             else
             {
@@ -254,3 +257,4 @@ void *mapxCurrent(Mapx *mapa){
     return mapa->currNode->data;
 
 }
+

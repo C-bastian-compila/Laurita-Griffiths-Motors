@@ -42,7 +42,7 @@ Lee los archivos para obtener los datos necesarios y los almacena en los TDA.
 
 Recibe como parametros los diferentes mapas a llenar.
 */
-void llenarBD(Map *, Mapx *, Mapx *, Mapx *);
+void llenarBD(Map *, Mapx *, Mapx *, Mapx *, BinaryTree *);
 
 /**
 
@@ -95,15 +95,13 @@ Cambia la posición del cursor.
 */
 void goy(int);
 
-void comprobarMapa(Mapx *); //************************************************
-
 /**
 
 Pregunta al usuario de que forma quiere ver los autos, ya sean tipo, gama o precio.
 
 retorna un puntero.
 */
-void *mostrarAutos(Mapx *, Mapx *);
+void *mostrarAutos(Mapx *, Mapx *, BinaryTree *);
 
 /**
 Segun el tipo indicado por parte del usuario se busca y muestran los autos.
@@ -203,7 +201,7 @@ void pagar(tipoUsuario *);
 void boleta(tipoAuto *, tipoMejora **);
 
 //FALTA DOCUMENTAR **********************************************************************************************************
-void actualizarBD(Mapx *);
+void actualizarBD(Mapx *, Map *);
 
 //FALTA DOCUMENTAR **********************************************************************************************************
 unsigned long long charANumero(char *charNumero);
