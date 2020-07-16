@@ -1,60 +1,60 @@
-14;Spark GT;Chevrolet;Casual;Baja;Usado;5090000;15
-36;Impreza Sport;Subaru;Casual;Baja;Usado;7200000;13
-37;Legacy;Subaru;Casual;Baja;Usado;1700000;6
-58;Alto 800;SUZUKI;Casual;Baja;Nuevo;4540000;13
-1;Gol;Volkswagen;Casual;Media;Nuevo;7790000;10
-2;Polo;Volkswagen;Casual;Media;Nuevo;11090000;5
-3;Golf;Volkswagen;Casual;Media;Nuevo;12990000;2
-4;Voyage;Volkswagen;Casual;Media;Nuevo;8090000;16
-5;Virtus;Volkswagen;Casual;Media;Usado;7090000;4
-11;Tucson Turbo;Hyundai;Todo terreno;Media;Nuevo;19790000;5
-12;Venue;Hyundai;Casual;Media;Usado;8290000;10
-13;Verna;Hyundai;Casual;Media;Nuevo;7190000;20
-20;Yaris;Toyota;Casual;Media;Usado;2100000;30
-21;Yaris Sport;Toyota;Casual;Media;Nuevo;9690000;13
-29;HR-V;Honda;Casual;Media;Nuevo;17390000;7
-30;Civic-SI;Honda;Casual;Media;Nuevo;26590000;2
-31;Civic-SI;Honda;Casual;Media;Usado;14590000;10
-38;Outback;Subaru;Todo terreno;Media;Usado;2200000;3
-49;Carens;KIA;Casual;Media;Nuevo;14590000;5
-52;208;Peugeot;Casual;Media;Nuevo;10490000;1
-54;Boxer;Peugeot;Casual;Media;Nuevo;22598100;4
-59;Ertiga;SUZUKI;Casual;Media;Usado;6490000;3
-60;Jimny;SUZUKI;Todo terreno;Media;Nuevo;12790000;5
-6;Jetta;Volkswagen;Casual;Alta;Nuevo;16990000;1
-7;The Beetle;Volkswagen;Deportivo;Alta;Nuevo;19490000;2
-8;Aventador S;Lamborghini;Deportivo Lujoso;Alta;Nuevo;312390000;1
-9;Urus;Lamborghini;Deportivo Lujoso;Alta;Nuevo;214087390;1
-10;Sian fkp 37;Lamborghini;Deportivo Lujoso;Alta;Usado;2756490000;0
-15;Camaro;Chevrolet;Deportivo Lujoso;Alta;Usado;14800000;3
-16;Q2 35 TFSI;Audi;Todo terreno;Alta;Nuevo;20890000;2
-17;R8 Coupe;Audi;Deportivo Lujoso;Alta;Nuevo;158990000;1
-18;TT Coupe;Audi;Deportivo;Alta;Nuevo;30990000;2
-19;RAV4 HíbridoToyota;Toyota;Todo terreno;Alta;Nuevo;22490000;6
-22;Tundra;Toyota;Todo terreno;Alta;Nuevo;31490000;4
-23;Veyron;Bugatti;Deportivo Lujoso;Alta;Nuevo;2002500000;1
-24;La Voiture Noire;Bugatti;Deportivo Lujoso;Alta;Nuevo;8199045855;2
-25;Clase CLA;Mercedes Benz;Casual;Alta;Usado;18490000;3
-26;Clase C;Mercedes Benz;Casual;Alta;Usado;8700000;7
-27;Elva;Mclaren;Deportivo Lujoso;Alta;Nuevo;1535355000;2
-28;Ridgeline;Honda;Todo terreno;Alta;Nuevo;31890000;3
-32;Panamera;Porsche;Lujoso;Alta;Usado;27500000;1
-33;Cayenne S;Porsche;Casual;Alta;Usado;41900000;1
-34;911 Carrera S;Porsche;Deportivo;Alta;Nuevo;55900000;2
-35;718 Cayman S;Porsche;Deportivo;Alta;Nuevo;49900000;4
-39;WRX;Subaru;Deportivo;Alta;Usado;17800000;4
-40;WRX;Subaru;Deportivo;Alta;Nuevo;23090000;1
-41;Coupe Serie 2;BMW;Deportivo;Alta;Nuevo;26290000;1
-42;Sedan Serie 3;BMW;Casual;Alta;Nuevo;22290000;3
-43;Sedan Serie 5;BMW;Casual;Alta;Nuevo;35390000;1
-44;SUV X3;BMW;Todo terreno;Alta;Nuevo;35990000;3
-45;SUV X7;BMW;Todo terreno;Alta;Nuevo;83990000;2
-46;Z4;BMW;Casual;Alta;Nuevo;36900000;1
-47;Grand Cherokee;Jeep;Todo terreno;Alta;Nuevo;26990000;2
-48;Wrangler;Jeep;Todo terreno;Alta;Nuevo;28490000;3
-50;Grand Carnival;KIA;Casual;Alta;Nuevo;23490000;1
-51;Seltos;KIA;Todo terreno;Alta;Usado;10990000;3
-53;508;Peugeot;Deportivo;Alta;Nuevo;24190000;1
-55;S60;Volvo;Deportivo;Alta;Nuevo;26490000;2
-56;XC90;Volvo;Todo terreno;Alta;Nuevo;35990000;1
-57;S90;Volvo;Deportivo;Alta;Usado;30990000;1
+1;Gol;Volkswagen;Casual;Media;Nuevo;7.790.000;10
+2;Polo;Volkswagen;Casual;Media;Nuevo;11.090.000;5
+3;Golf;Volkswagen;Casual;Media;Nuevo;12.990.000;2
+4;Voyage;Volkswagen;Casual;Media;Nuevo;8.090.000;16
+5;Virtus;Volkswagen;Casual;Media;Usado;7.090.000;4
+6;Jetta;Volkswagen;Casual;Alta;Nuevo;16.990.000;1
+7;The Beetle;Volkswagen;Deportivo;Alta;Nuevo;19.490.000;3
+8;Aventador S;Lamborghini;Deportivo Lujoso;Alta;Nuevo;312.390.000;1
+9;Urus;Lamborghini;Deportivo Lujoso;Alta;Nuevo;214.087.390;1
+10;Sian fkp 37;Lamborghini;Deportivo Lujoso;Alta;Usado;2.756.490.000;0
+11;Tucson Turbo;Hyundai;Todo terreno;Media;Nuevo;19.790.000;6
+12;Venue;Hyundai;Casual;Media;Usado;8.290.000;10
+13;Verna;Hyundai;Casual;Media;Nuevo;7.190.000;20
+14;Spark GT;Chevrolet;Casual;Baja;Usado;5.090.000;15
+15;Camaro;Chevrolet;Deportivo Lujoso;Alta;Usado;14.800.000;3
+16;Q2 35 TFSI;Audi;Todo terreno;Alta;Nuevo;20.890.000;2
+17;R8 Coupe;Audi;Deportivo Lujoso;Alta;Nuevo;158.990.000;1
+18;TT Coupe;Audi;Deportivo;Alta;Nuevo;30.990.000;2
+19;RAV4 HibridoToyota;Toyota;Todo terreno;Alta;Nuevo;22.490.000;6
+20;Yaris;Toyota;Casual;Media;Usado;1.100.000;30
+21;Yaris Sport;Toyota;Casual;Media;Nuevo;9.690.000;13
+22;Tundra;Toyota;Todo terreno;Alta;Nuevo;31.490.000;4
+23;Veyron;Bugatti;Deportivo Lujoso;Alta;Nuevo;2.002.500.000;1
+24;La Voiture Noire;Bugatti;Deportivo Lujoso;Alta;Nuevo;8.199.045.855;0
+25;Clase CLA;Mercedes Benz;Casual;Alta;Usado;18.490.000;3
+26;Clase C;Mercedes Benz;Casual;Alta;Usado;8.700.000;7
+27;Elva;Mclaren;Deportivo Lujoso;Alta;Nuevo;1.535.355.000;2
+28;Ridgeline;Honda;Todo terreno;Alta;Nuevo;31.890.000;3
+29;HR-V;Honda;Casual;Media;Nuevo;17.390.000;7
+30;Civic-SI;Honda;Casual;Media;Nuevo;26.590.000;2
+31;Civic-SI;Honda;Casual;Media;Usado;14.590.000;10
+32;Panamera;Porsche;Lujoso;Alta;Usado;27.500.000;1
+33;Cayenne S;Porsche;Casual;Alta;Usado;41.900.000;1
+34;911 Carrera S;Porsche;Deportivo;Alta;Nuevo;55.900.000;2
+35;718 Cayman S;Porsche;Deportivo;Alta;Nuevo;49.900.000;4
+36;Impreza Sport;Subaru;Casual;Baja;Usado;7.200.000;13
+37;Legacy;Subaru;Casual;Baja;Usado;1.700.000;6
+38;Outback;Subaru;Todo terreno;Media;Usado;2.200.000;3
+39;WRX;Subaru;Deportivo;Alta;Usado;17.800.000;1
+40;WRX;Subaru;Deportivo;Alta;Nuevo;23.090.000;1
+41;Coupe Serie 2;BMW;Deportivo;Alta;Nuevo;26.290.000;1
+42;Sedan Serie 3;BMW;Casual;Alta;Nuevo;22.290.000;3
+43;Sedan Serie 5;BMW;Casual;Alta;Nuevo;35.390.000;1
+44;SUV X3;BMW;Todo terreno;Alta;Nuevo;35.990.000;3
+45;SUV X7;BMW;Todo terreno;Alta;Nuevo;83.990.000;2
+46;Z4;BMW;Casual;Alta;Nuevo;36.900.000;1
+47;Grand Cherokee;Jeep;Todo terreno;Alta;Nuevo;26.990.000;1
+48;Wrangler;Jeep;Todo terreno;Alta;Nuevo;28.490.000;3
+49;Carens;KIA;Casual;Media;Nuevo;14.590.000;5
+50;Grand Carnival;KIA;Casual;Alta;Nuevo;23.490.000;1
+51;Seltos;KIA;Todo terreno;Alta;Usado;10.990.000;3
+52;208;Peugeot;Casual;Media;Nuevo;10.490.000;1
+53;508;Peugeot;Deportivo;Alta;Nuevo;24.190.000;1
+54;Boxer;Peugeot;Casual;Media;Nuevo;22.598.100;4
+55;S60;Volvo;Deportivo;Alta;Nuevo;26.490.000;2
+56;XC90;Volvo;Todo terreno;Alta;Nuevo;35.990.000;1
+57;S90;Volvo;Deportivo;Alta;Usado;30.990.000;1
+58;Alto 800;SUZUKI;Casual;Baja;Nuevo;4.540.000;13
+59;Ertiga;SUZUKI;Casual;Media;Usado;6.490.000;3
+60;Jimny;SUZUKI;Todo terreno;Media;Nuevo;12.790.000;5

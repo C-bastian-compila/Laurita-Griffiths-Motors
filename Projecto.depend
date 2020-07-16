@@ -1245,3 +1245,70 @@
 	"ArbolBinario.h"
 	"list.h"
 
+1594834235 source:c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\arbolbinario.c
+	"ArbolBinario.h"
+	<stdlib.h>
+
+1594834235 c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\arbolbinario.h
+
+1594834235 source:c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<stdbool.h>
+	<string.h>
+	<windows.h>
+	"Funciones.h"
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594834235 c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\funciones.h
+	<stdbool.h>
+	"Map.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"list.h"
+
+1594834235 c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\map.h
+
+1594834235 c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\mapaenlazado.h
+
+1594834235 c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\list.h
+
+1594834235 source:c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1594866474 source:c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<windows.h>
+	"Funciones.h"
+	"MapaEnlazado.h"
+	"ArbolBinario.h"
+	"Map.h"
+	"list.h"
+
+1594834235 source:c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\map.c
+	"Map.h"
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<assert.h>
+
+1594834235 source:c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\mapaenlazado.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<assert.h>
+	"MapaEnlazado.h"
+	"Funciones.h"
+
+1594866460 source:c:\users\erikb\downloads\laurita-griffiths-motors-master (2)\laurita-griffiths-motors-master\resource.rc
+

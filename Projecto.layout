@@ -2,6 +2,16 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
+	<File name="MapaEnlazado.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2829" topLine="108" />
+		</Cursor>
+	</File>
+	<File name="MapaEnlazado.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="311" topLine="33" />
+		</Cursor>
+	</File>
 	<File name="Map.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6659" topLine="205" />
@@ -10,12 +20,22 @@
 			<Collapse line="48" />
 		</Folding>
 	</File>
-	<File name="MapaEnlazado.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Map.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2829" topLine="108" />
+			<Cursor1 position="3691" topLine="117" />
 		</Cursor>
 	</File>
-	<File name="Funciones.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="ArbolBinario.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3358" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="ArbolBinario.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="413" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Funciones.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="29331" topLine="0" />
 		</Cursor>
@@ -24,147 +44,21 @@
 			<Collapse line="26" />
 			<Collapse line="30" />
 			<Collapse line="36" />
-			<Collapse line="42" />
-			<Collapse line="97" />
-			<Collapse line="149" />
-			<Collapse line="166" />
-			<Collapse line="168" />
-			<Collapse line="187" />
-			<Collapse line="202" />
-			<Collapse line="204" />
-			<Collapse line="223" />
-			<Collapse line="238" />
-			<Collapse line="240" />
-			<Collapse line="259" />
-			<Collapse line="274" />
-			<Collapse line="276" />
-			<Collapse line="297" />
-			<Collapse line="314" />
-			<Collapse line="316" />
-			<Collapse line="333" />
-			<Collapse line="365" />
-			<Collapse line="399" />
-			<Collapse line="506" />
-			<Collapse line="514" />
-			<Collapse line="518" />
-			<Collapse line="523" />
-			<Collapse line="539" />
-			<Collapse line="555" />
-			<Collapse line="582" />
-			<Collapse line="666" />
-			<Collapse line="681" />
-			<Collapse line="693" />
-			<Collapse line="701" />
-			<Collapse line="707" />
-			<Collapse line="712" />
-			<Collapse line="715" />
-			<Collapse line="725" />
-			<Collapse line="756" />
-			<Collapse line="765" />
-			<Collapse line="789" />
-			<Collapse line="791" />
-			<Collapse line="808" />
-			<Collapse line="823" />
-			<Collapse line="824" />
-			<Collapse line="826" />
-			<Collapse line="833" />
-			<Collapse line="841" />
-			<Collapse line="843" />
-			<Collapse line="856" />
-			<Collapse line="858" />
-			<Collapse line="865" />
-			<Collapse line="890" />
-			<Collapse line="898" />
-			<Collapse line="922" />
-			<Collapse line="924" />
-			<Collapse line="941" />
-			<Collapse line="956" />
-			<Collapse line="964" />
-			<Collapse line="977" />
-			<Collapse line="984" />
-			<Collapse line="1007" />
-			<Collapse line="1012" />
-			<Collapse line="1020" />
-			<Collapse line="1031" />
-			<Collapse line="1042" />
-			<Collapse line="1057" />
-			<Collapse line="1141" />
-			<Collapse line="1173" />
-			<Collapse line="1183" />
-			<Collapse line="1191" />
-			<Collapse line="1200" />
-			<Collapse line="1213" />
-			<Collapse line="1219" />
-			<Collapse line="1230" />
-			<Collapse line="1236" />
-			<Collapse line="1250" />
-			<Collapse line="1256" />
-			<Collapse line="1265" />
-			<Collapse line="1275" />
-			<Collapse line="1292" />
-			<Collapse line="1309" />
-			<Collapse line="1330" />
-			<Collapse line="1347" />
-			<Collapse line="1358" />
-			<Collapse line="1364" />
-			<Collapse line="1371" />
-			<Collapse line="1387" />
-			<Collapse line="1403" />
-			<Collapse line="1414" />
-			<Collapse line="1418" />
-			<Collapse line="1419" />
-			<Collapse line="1426" />
-			<Collapse line="1435" />
-			<Collapse line="1447" />
-			<Collapse line="1456" />
-			<Collapse line="1474" />
-			<Collapse line="1476" />
-			<Collapse line="1485" />
-			<Collapse line="1493" />
-			<Collapse line="1504" />
-			<Collapse line="1512" />
-			<Collapse line="1520" />
-			<Collapse line="1528" />
-			<Collapse line="1538" />
-			<Collapse line="1547" />
-			<Collapse line="1549" />
-			<Collapse line="1556" />
-			<Collapse line="1567" />
-			<Collapse line="1583" />
-			<Collapse line="1595" />
-			<Collapse line="1604" />
-			<Collapse line="1606" />
-			<Collapse line="1612" />
 		</Folding>
-	</File>
-	<File name="ArbolBinario.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3358" topLine="106" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="179" topLine="147" />
-		</Cursor>
-	</File>
-	<File name="Map.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3691" topLine="117" />
-		</Cursor>
 	</File>
 	<File name="Funciones.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1813" topLine="52" />
 		</Cursor>
 	</File>
-	<File name="MapaEnlazado.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="311" topLine="33" />
+			<Cursor1 position="198" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ArbolBinario.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="resource.rc" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="413" topLine="0" />
+			<Cursor1 position="20" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
